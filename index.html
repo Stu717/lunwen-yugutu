@@ -10,7 +10,7 @@
   --primary:#4f46e5; --primary-2:#6366f1; --soft:#eef2ff;
   --amber:#f59e0b; --green:#10b981; --red:#ef4444;
   --e1:#4f46e5; --e2:#0ea5e9; --e3:#f59e0b; --c:#94a3b8;
-  --bg:#f5f7fb; --card:#fff;
+  --bg:#f1f4f9; --card:#fff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -48,10 +48,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .section-head h2{font-size:28px;line-height:1.35;margin:8px 0 10px;letter-spacing:-.01em}
 .section-head p{color:var(--muted);font-size:15.5px;max-width:800px}
+
+/* 卡片：加深边框，提高对比 */
 .card{
-  background:var(--card);border:1px solid var(--line);
+  background:#fff;border:1px solid #cbd5e1;
   border-radius:16px;padding:24px;
-  box-shadow:0 1px 3px rgba(15,23,42,.04);
+  box-shadow:0 2px 8px -4px rgba(15,23,42,.08);
   transition:transform .25s, box-shadow .25s;
 }
 .card:hover{box-shadow:0 10px 30px -18px rgba(79,70,229,.35)}
@@ -107,35 +109,35 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .stage-right{display:flex;align-items:center;justify-content:center}
 
 .tap-card{
-  background:rgba(15,23,42,.35);border:1px solid rgba(255,255,255,.14);
+  background:rgba(15,23,42,.5);border:1px solid rgba(255,255,255,.2);
   border-radius:12px;padding:16px 18px;transition:.3s;
 }
-.tap-card:hover{transform:translateX(4px);border-color:rgba(255,255,255,.3)}
+.tap-card:hover{transform:translateX(4px);border-color:rgba(255,255,255,.4)}
 .tap-card .tch{
   font-size:13.5px;font-weight:700;letter-spacing:.06em;
-  color:#a5b4fc;margin-bottom:8px;display:flex;align-items:center;gap:6px;
+  color:#c7d2fe;margin-bottom:8px;display:flex;align-items:center;gap:6px;
 }
-.tap-card .tch .dot{width:7px;height:7px;border-radius:50%;background:#a5b4fc}
-.tap-card .tcb{font-size:14.5px;color:#e2e8f0;line-height:1.8}
+.tap-card .tch .dot{width:7px;height:7px;border-radius:50%;background:#c7d2fe}
+.tap-card .tcb{font-size:14.5px;color:#f1f5f9;line-height:1.8}
 .tap-card .tce{
-  font-size:13px;color:#94a3b8;margin-top:10px;
-  padding-top:10px;border-top:1px dashed rgba(255,255,255,.15);line-height:1.7;
+  font-size:13px;color:#cbd5e1;margin-top:10px;
+  padding-top:10px;border-top:1px dashed rgba(255,255,255,.2);line-height:1.7;
 }
-.tap-card.good{border-color:rgba(16,185,129,.45);background:rgba(16,185,129,.08)}
-.tap-card.good .tch{color:#6ee7b7}
-.tap-card.bad{border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.07)}
-.tap-card.bad .tch{color:#fca5a5}
+.tap-card.good{border-color:rgba(16,185,129,.5);background:rgba(16,185,129,.15)}
+.tap-card.good .tch{color:#a7f3d0}
+.tap-card.bad{border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.13)}
+.tap-card.bad .tch{color:#fecaca}
 .stage-note{
-  margin-top:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
-  border-radius:12px;padding:16px 18px;font-size:14.5px;color:#e0e7ff;line-height:1.8;
+  margin-top:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  border-radius:12px;padding:16px 18px;font-size:14.5px;color:#f1f5f9;line-height:1.8;
 }
 .stage-note b{color:#fcd34d}
 
 /* 首页→理论过渡卡片 */
 .bridge-card{
-  margin-top:20px;background:rgba(252,211,77,.12);
-  border:1px solid rgba(252,211,77,.35);border-radius:12px;
-  padding:18px 20px;font-size:14.5px;color:#fde68a;line-height:1.8;
+  margin-top:20px;background:rgba(252,211,77,.18);
+  border:1px solid rgba(252,211,77,.45);border-radius:12px;
+  padding:18px 20px;font-size:14.5px;color:#fef3c7;line-height:1.8;
   display:flex;gap:14px;align-items:flex-start;
 }
 .bridge-card .icon{font-size:22px;flex-shrink:0;line-height:1}
@@ -147,8 +149,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* ===== 速览卡 ===== */
 .overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .ov-card{
-  background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;
+  background:#fff;border:1px solid #cbd5e1;border-radius:16px;padding:24px;
   transition:.3s; position:relative; overflow:hidden;
+  box-shadow:0 2px 8px -6px rgba(15,23,42,.1);
 }
 .ov-card::before{
   content:"";position:absolute;top:0;left:0;width:100%;height:3px;
@@ -156,39 +159,53 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   transform:scaleX(0);transform-origin:left;transition:.35s;
 }
 .ov-card:hover::before{transform:scaleX(1)}
-.ov-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px -14px rgba(79,70,229,.3);border-color:#c7d2fe}
+.ov-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px -14px rgba(79,70,229,.35);border-color:#a5b4fc}
 .ov-card .ico{font-size:24px;margin-bottom:10px}
 .ov-card h3{font-size:16.5px;margin-bottom:8px}
 .ov-card p{font-size:14px;color:var(--muted);line-height:1.7}
 
 /* ===== 理论与方法 ===== */
-.theory-block{margin-bottom:34px}
-.theory-block h3{font-size:18px;margin-bottom:10px}
-.theory-block p{font-size:15px;color:#334155;line-height:1.8;margin-bottom:10px}
-.theory-block .note{
-  font-size:14px;color:#475569;background:#f8fafc;border-left:3px solid var(--primary);
-  padding:13px 16px;border-radius:0 10px 10px 0;margin-top:10px;line-height:1.7;
+/* 每个理论块做成独立的卡片，浅色底 */
+.theory-block{
+  margin-bottom:22px;
+  background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);
+  border:1px solid #cbd5e1;
+  border-radius:16px;
+  padding:24px 26px;
+  box-shadow:0 2px 8px -6px rgba(15,23,42,.08);
 }
+.theory-block h3{font-size:18px;margin-bottom:12px;color:#1e293b}
+.theory-block p{font-size:15px;color:#334155;line-height:1.8;margin-bottom:10px}
+/* note：浅紫底，对比更强 */
+.theory-block .note{
+  font-size:14px;color:#3730a3;background:#e0e7ff;
+  border-left:3px solid var(--primary);
+  padding:14px 18px;border-radius:0 10px 10px 0;margin-top:12px;line-height:1.75;
+}
+/* theory-block 内的表格，白底 */
+.theory-block .design-table{background:#fff}
 
 /* 研究问题卡片 */
 .rq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
 @media(max-width:760px){.rq-grid{grid-template-columns:1fr}}
 .rq-card{
-  background:linear-gradient(135deg,#eef2ff 0%,#fff 100%);
-  border:1px solid #c7d2fe;border-radius:14px;padding:20px;
+  background:linear-gradient(135deg,#e0e7ff 0%,#eef2ff 100%);
+  border:1.5px solid #a5b4fc;border-radius:14px;padding:20px;
+  box-shadow:0 4px 14px -10px rgba(79,70,229,.35);
   position:relative;overflow:hidden;
 }
 .rq-card .rq-label{
   display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;
   background:var(--primary);color:#fff;padding:3px 10px;border-radius:6px;margin-bottom:10px;
 }
-.rq-card p{font-size:14.5px;color:#334155;line-height:1.75;margin:0}
+.rq-card p{font-size:14.5px;color:#1e1b4b;line-height:1.75;margin:0}
 
-/* 鱼骨图底衬 */
+/* 鱼骨图底衬：明显的浅色渐变 + 边框 */
 .fishbone-wrap-bg{
-  background:linear-gradient(135deg,#f8fafc 0%,#eef2ff 50%,#f0f9ff 100%);
-  border-radius:18px;padding:28px;border:1px solid #e2e8f0;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.8), 0 4px 14px -8px rgba(79,70,229,.18);
+  background:linear-gradient(135deg,#e0e7ff 0%,#eef2ff 45%,#e0f2fe 100%);
+  border-radius:18px;padding:28px;border:1.5px solid #a5b4fc;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),
+             0 8px 24px -12px rgba(79,70,229,.35);
   margin-top:16px;
 }
 .fish-demo{
@@ -199,21 +216,39 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .fish-legend{flex:1;min-width:240px}
 .fish-legend .fl-item{
   display:flex;gap:10px;align-items:flex-start;font-size:14.5px;
-  padding:10px 0;border-bottom:1px dashed var(--line);cursor:pointer;
-  transition:.2s;border-radius:6px;
+  padding:12px 14px;margin-bottom:6px;
+  background:rgba(255,255,255,.7);border:1px solid #e2e8f0;
+  border-radius:10px;cursor:pointer;transition:.2s;
 }
-.fish-legend .fl-item:hover{background:rgba(255,255,255,.7);padding-left:8px}
-.fish-legend .fl-item:last-child{border-bottom:none}
+.fish-legend .fl-item:hover{
+  background:#fff;border-color:var(--primary);
+  transform:translateX(4px);
+  box-shadow:0 6px 16px -10px rgba(79,70,229,.4);
+}
 .fish-legend .fl-dot{width:11px;height:11px;border-radius:50%;margin-top:7px;flex-shrink:0}
-.fish-legend .fl-item b{display:block;font-size:15px}
+.fish-legend .fl-item b{display:block;font-size:15px;color:#1e293b}
 .fish-legend .fl-item span{color:var(--muted);font-size:13.5px}
 
-/* ===== 论文框架 ===== */
-.design-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}
-.design-table th,.design-table td{
-  border:1px solid var(--line);padding:10px 14px;text-align:left;vertical-align:top;
+/* ===== 表格：表头深底 + 斑马纹 ===== */
+.design-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  font-size:14px;margin-top:10px;
+  background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 2px 8px -6px rgba(15,23,42,.12);
+  border:1px solid #cbd5e1;
 }
-.design-table th{background:#f8fafc;font-weight:700;color:#334155;font-size:14px}
+.design-table th,.design-table td{
+  padding:11px 14px;text-align:left;vertical-align:top;
+  border-bottom:1px solid #e2e8f0;
+}
+.design-table th{
+  background:#e0e7ff;font-weight:800;color:#3730a3;font-size:13.5px;
+  border-bottom:2px solid #a5b4fc;
+  letter-spacing:.02em;
+}
+.design-table tr:nth-child(even) td{background:#f8fafc}
+.design-table tr:hover td{background:#eef2ff}
+.design-table tr:last-child td{border-bottom:none}
 .design-table td{color:#475569}
 .design-table .tag{
   display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;margin:2px;
@@ -222,57 +257,64 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .tag-nogai{background:#fff7ed;color:#c2410c}
 .tag-ctrl{background:#f1f5f9;color:#64748b}
 
+/* ===== 论文框架 ===== */
+.framework-card{
+  background:#fff;border:1px solid #cbd5e1;border-radius:16px;padding:26px;
+  box-shadow:0 2px 8px -6px rgba(15,23,42,.1);
+}
+
 /* ===== 实验设计 ===== */
 .fig1{
-  background:linear-gradient(180deg,#f8fafc 0%,#fff 100%);
-  border:1px solid var(--line);border-radius:16px;padding:24px;
+  background:linear-gradient(180deg,#eef2ff 0%,#fff 100%);
+  border:1.5px solid #c7d2fe;border-radius:16px;padding:26px;
+  box-shadow:0 4px 14px -10px rgba(79,70,229,.2);
 }
-.fig1-flow{
-  display:flex;flex-direction:column;align-items:center;gap:12px;
-}
+.fig1-flow{display:flex;flex-direction:column;align-items:center;gap:12px}
 .fig1-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .fig1-node{
-  background:#fff;border:1.5px solid #cbd5e1;border-radius:10px;
-  padding:8px 16px;font-size:14px;font-weight:600;color:#334155;text-align:center;
+  background:#fff;border:1.5px solid #94a3b8;border-radius:10px;
+  padding:9px 16px;font-size:14px;font-weight:600;color:#334155;text-align:center;
   transition:.2s;
+  box-shadow:0 2px 6px -4px rgba(15,23,42,.15);
 }
-.fig1-node:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
-.fig1-node.hl{background:var(--soft);border-color:#c7d2fe;color:var(--primary)}
-.fig1-node.dark{background:#1e1b4b;border-color:#1e1b4b;color:#fff}
-.fig1-node.small{font-size:13px;padding:6px 12px;font-weight:500}
-.fig1-arrow{font-size:20px;color:#94a3b8;line-height:1}
-.fig1-label{font-size:13px;color:#94a3b8;margin-top:4px}
-.fig1-caption{font-size:13px;color:var(--muted);text-align:center;margin-top:16px}
+.fig1-node:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px);box-shadow:0 8px 16px -10px rgba(79,70,229,.4)}
+.fig1-node.hl{background:#e0e7ff;border-color:#6366f1;color:#4338ca}
+.fig1-node.dark{background:#312e81;border-color:#312e81;color:#fff}
+.fig1-node.small{font-size:13px;padding:7px 12px;font-weight:600}
+.fig1-arrow{font-size:20px;color:#6366f1;line-height:1}
+.fig1-label{font-size:13px;color:#6366f1;font-weight:600;margin-top:4px}
+.fig1-caption{font-size:13px;color:var(--muted);text-align:center;margin-top:16px;font-style:italic}
 
-/* 数据收集时间线 */
-.timeline-bar{
-  display:flex;gap:6px;margin-top:16px;flex-wrap:wrap;
-}
+/* 数据收集时间线：白底+彩色顶边+阴影 */
+.timeline-bar{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
 .tl-step{
-  flex:1;min-width:120px;background:#fff;border:1px solid var(--line);
-  border-radius:10px;padding:12px 14px;font-size:13.5px;
-  border-top:3px solid var(--primary);
+  flex:1;min-width:140px;
+  background:#fff;
+  border:1px solid #cbd5e1;
+  border-top:4px solid var(--primary);
+  border-radius:12px;padding:14px 16px;font-size:13.5px;
+  box-shadow:0 4px 12px -8px rgba(79,70,229,.3);
   transition:.25s;
 }
-.tl-step:hover{transform:translateY(-3px);box-shadow:0 8px 18px -12px rgba(79,70,229,.4)}
-.tl-step b{display:block;font-size:13.5px;color:var(--primary);margin-bottom:4px}
-.tl-step span{color:var(--muted);font-size:12.5px;line-height:1.6;display:block}
+.tl-step:hover{transform:translateY(-3px);box-shadow:0 10px 20px -12px rgba(79,70,229,.5);border-color:#a5b4fc}
+.tl-step b{display:block;font-size:13.5px;color:var(--primary);margin-bottom:6px}
+.tl-step span{color:#475569;font-size:12.5px;line-height:1.65;display:block}
 
 /* ===== 结果 ===== */
 .metric-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;align-items:center}
 .mtab{
   font-size:14px;font-weight:600;padding:9px 16px;border-radius:9px;
-  border:1px solid var(--line);background:#fff;color:#475569;transition:.2s;
+  border:1.5px solid #cbd5e1;background:#fff;color:#475569;transition:.2s;
 }
-.mtab:hover{border-color:#c7d2fe;color:var(--primary)}
-.mtab.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.mtab:hover{border-color:#a5b4fc;color:var(--primary);background:var(--soft)}
+.mtab.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 6px 16px -8px rgba(79,70,229,.6)}
 .t4-toggle{
   margin-left:auto;font-size:13px;font-weight:600;padding:8px 15px;
   border-radius:9px;border:1.5px solid var(--amber);color:var(--amber);
   background:#fff;transition:.2s;
 }
 .t4-toggle:hover{background:#fef3c7}
-.t4-toggle.active{background:var(--amber);color:#fff}
+.t4-toggle.active{background:var(--amber);color:#fff;box-shadow:0 6px 16px -8px rgba(245,158,11,.6)}
 @media(max-width:680px){.t4-toggle{margin-left:0}}
 
 .legend{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;font-size:14px}
@@ -280,16 +322,33 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .legend span:hover{color:var(--primary)}
 .legend span.off{opacity:.3}
 .legend i{width:16px;height:3.5px;border-radius:2px;display:inline-block}
-.chart-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 10px 6px}
+.chart-box{
+  background:#fff;border:1.5px solid #cbd5e1;border-radius:16px;
+  padding:18px 12px 8px;
+  box-shadow:0 4px 14px -10px rgba(79,70,229,.2);
+}
 .chart-box svg{width:100%;height:auto;display:block}
-.metric-note{font-size:14px;color:var(--muted);margin-top:14px;padding:14px 18px;background:#f8fafc;border-radius:10px;border-left:3px solid var(--primary)}
+.metric-note{
+  font-size:14px;color:#3730a3;margin-top:14px;padding:14px 18px;
+  background:#e0e7ff;border-radius:10px;border-left:3px solid var(--primary);
+  line-height:1.75;
+}
 
 /* 显著性表格 */
-.sig-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:16px}
-.sig-table th,.sig-table td{border:1px solid var(--line);padding:10px 12px;text-align:left}
-.sig-table th{background:#f8fafc;font-weight:700;color:#334155}
+.sig-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  font-size:13.5px;margin-top:18px;
+  background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 2px 8px -6px rgba(15,23,42,.12);
+  border:1px solid #cbd5e1;
+}
+.sig-table th,.sig-table td{padding:11px 14px;text-align:left;border-bottom:1px solid #e2e8f0}
+.sig-table th{background:#e0e7ff;font-weight:800;color:#3730a3;border-bottom:2px solid #a5b4fc}
+.sig-table tr:nth-child(even) td{background:#f8fafc}
+.sig-table tr:last-child td{border-bottom:none}
 .sig-table td{color:#475569}
-.sig-table .star{color:var(--red);font-weight:800}
+.sig-table .star{color:#dc2626;font-weight:800}
+.sig-note{font-size:13px;color:var(--muted);margin-top:8px}
 
 .bar-chart{display:flex;justify-content:space-around;align-items:flex-end;gap:12px;height:320px;padding:20px 10px 0}
 .bar-group{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
@@ -297,16 +356,20 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .bar{width:28px;border-radius:6px 6px 0 0;position:relative;transition:.6s cubic-bezier(.2,.8,.3,1)}
 .bar.post{background:linear-gradient(180deg,#818cf8,#4f46e5)}
 .bar.delay{background:linear-gradient(180deg,#c7d2fe,#a5b4fc)}
-.bar .val{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:12.5px;font-weight:700;color:#475569}
+.bar .val{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:12.5px;font-weight:700;color:#334155}
 .bar-group .glabel{margin-top:12px;font-size:14px;font-weight:700;color:#334155}
 .bar-legend{display:flex;gap:20px;justify-content:center;margin-top:10px;font-size:13.5px;color:var(--muted)}
 .bar-legend i{width:14px;height:14px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:-2px}
 
-/* 讨论区 */
-.discussion-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:20px}
+/* 讨论区：浅蓝底 */
+.discussion-box{
+  background:linear-gradient(135deg,#e0f2fe 0%,#eef2ff 100%);
+  border:1.5px solid #a5b4fc;border-radius:16px;padding:24px;margin-top:20px;
+  box-shadow:0 4px 14px -10px rgba(79,70,229,.25);
+}
 .discussion-box h4{font-size:17px;margin-bottom:12px;color:var(--primary)}
-.discussion-box p{font-size:14.5px;color:#475569;line-height:1.8;margin-bottom:12px}
-.discussion-box ul{margin-left:20px;color:#475569;font-size:14.5px}
+.discussion-box p{font-size:14.5px;color:#1e293b;line-height:1.8;margin-bottom:12px}
+.discussion-box ul{margin-left:20px;color:#334155;font-size:14.5px}
 .discussion-box li{margin-bottom:8px}
 
 /* ===== 优缺点 ===== */
@@ -314,27 +377,30 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 @media(max-width:760px){.proscons{grid-template-columns:1fr}}
 .pc-col h3{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
 .pc-col h3 .badge{font-size:12px;font-weight:700;padding:3px 12px;border-radius:6px}
-.pc-col.pros h3 .badge{background:#ecfdf5;color:#047857}
-.pc-col.cons h3 .badge{background:#fef2f2;color:#b91c1c}
+.pc-col.pros h3 .badge{background:#d1fae5;color:#047857}
+.pc-col.cons h3 .badge{background:#fee2e2;color:#b91c1c}
 .pc-item{
-  background:#fff;border:1px solid var(--line);border-radius:12px;
+  background:#fff;border:1px solid #cbd5e1;border-radius:12px;
   padding:16px 18px;margin-bottom:12px;font-size:14px;line-height:1.75;color:#475569;
   transition:.2s;
+  box-shadow:0 2px 6px -4px rgba(15,23,42,.08);
 }
-.pc-item:hover{transform:translateY(-2px);box-shadow:0 8px 20px -14px rgba(79,70,229,.3)}
-.pc-item b{color:#334155}
+.pc-item:hover{transform:translateY(-2px);box-shadow:0 8px 20px -14px rgba(79,70,229,.4);border-color:#a5b4fc}
+.pc-item b{color:#1e293b}
 
 /* 教学启示 */
 .teach-box{
-  margin-top:24px;background:linear-gradient(135deg,#eef2ff 0%,#f0f9ff 100%);
-  border:1px solid #c7d2fe;border-radius:16px;padding:24px;
+  margin-top:24px;background:linear-gradient(135deg,#e0e7ff 0%,#e0f2fe 100%);
+  border:1.5px solid #a5b4fc;border-radius:16px;padding:26px;
+  box-shadow:0 4px 14px -10px rgba(79,70,229,.25);
 }
-.teach-box h4{font-size:17px;color:var(--primary);margin-bottom:14px}
+.teach-box h4{font-size:17px;color:var(--primary);margin-bottom:16px}
 .teach-box .teach-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:680px){.teach-box .teach-grid{grid-template-columns:1fr}}
 .teach-card{
   background:#fff;border-radius:12px;padding:16px 18px;font-size:14px;
-  border:1px solid #e2e8f0;line-height:1.7;
+  border:1px solid #cbd5e1;line-height:1.7;
+  box-shadow:0 2px 6px -4px rgba(15,23,42,.08);
 }
 .teach-card b{display:block;color:var(--primary);margin-bottom:6px;font-size:14.5px}
 .teach-card span{color:#475569}
@@ -349,11 +415,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   color:#3730a3;
   font-weight:600;
   transition:.15s;
-  background:linear-gradient(to bottom, transparent 60%, #e0e7ff 60%);
+  background:linear-gradient(to bottom, transparent 60%, #c7d2fe 60%);
   padding:1px 2px;
   border-radius:2px;
 }
-.term:hover{background:#c7d2fe;border-radius:3px}
+.term:hover{background:#a5b4fc;border-radius:3px;color:#1e1b4b}
 .term::after {
   content:"?";
   display:inline-block;
@@ -365,7 +431,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .term-card{
   position:fixed;z-index:300;max-width:380px;
-  background:#fff;border:1px solid var(--line);border-radius:14px;
+  background:#fff;border:1px solid #cbd5e1;border-radius:14px;
   box-shadow:0 20px 50px -20px rgba(15,23,42,.5);
   padding:20px 22px;display:none;font-size:14px;line-height:1.75;
 }
@@ -379,7 +445,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .term-card .tc-row{margin-top:10px;color:#475569}
 .term-card .tc-row b{color:#334155}
-.term-card .tc-row.here{background:#fffbeb;border-radius:8px;padding:10px 12px;margin-top:12px}
+.term-card .tc-row.here{background:#fef3c7;border-radius:8px;padding:10px 12px;margin-top:12px}
 .term-card .tc-row.here b{color:#b45309}
 .term-card .tc-close{
   position:absolute;top:12px;right:14px;font-size:18px;color:#94a3b8;
@@ -514,28 +580,29 @@ footer{
     <p>鱼骨图由日本质量管理专家石川馨于 1960 年代提出，最初用于分析产品质量问题的原因。本研究把它从“因果分析工具”改造成“论证结构工具”。</p>
     <p><strong>注意区别</strong>：首页案例保留了完整的 TAP 六要素；这里展示的是研究者简化后的 4 要素鱼骨图。</p>
 
+    <!-- 鱼骨图：明显浅色底 -->
     <div class="fishbone-wrap-bg">
       <div class="fish-demo">
         <svg class="fish-svg" id="fishboneSVG" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
-          <ellipse class="fb-claim" cx="410" cy="150" rx="80" ry="54" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+          <ellipse class="fb-claim" cx="410" cy="150" rx="80" ry="54" fill="#fff" stroke="#4f46e5" stroke-width="3"/>
           <text x="410" y="142" text-anchor="middle" font-size="16" font-weight="700" fill="#4f46e5" pointer-events="none">主张</text>
           <text x="410" y="164" text-anchor="middle" font-size="12" fill="#6366f1" pointer-events="none">Claim</text>
-          <polygon class="fb-qualifier" points="55,150 110,108 110,192" fill="#fff7ed" stroke="#f59e0b" stroke-width="2.5"/>
+          <polygon class="fb-qualifier" points="55,150 110,108 110,192" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
           <text x="78" y="145" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c" pointer-events="none">限定</text>
-          <text x="78" y="164" text-anchor="middle" font-size="11" fill="#f59e0b" pointer-events="none">Qualifier</text>
-          <line x1="110" y1="150" x2="330" y2="150" stroke="#334155" stroke-width="3"/>
-          <line class="fb-warrant" x1="175" y1="150" x2="235" y2="65" stroke="#0ea5e9" stroke-width="2.5"/>
-          <line class="fb-warrant" x1="255" y1="150" x2="315" y2="65" stroke="#0ea5e9" stroke-width="2.5"/>
-          <text x="205" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0284c7" pointer-events="none">理由/佐证</text>
-          <text x="285" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0284c7" pointer-events="none">资料/证据</text>
-          <text x="205" y="75" text-anchor="middle" font-size="10" fill="#0ea5e9" pointer-events="none">(Warrant)</text>
-          <text x="285" y="75" text-anchor="middle" font-size="10" fill="#0ea5e9" pointer-events="none">(Data)</text>
-          <line class="fb-rebuttal" x1="175" y1="150" x2="235" y2="235" stroke="#ef4444" stroke-width="2.5"/>
-          <line class="fb-rebuttal" x1="255" y1="150" x2="315" y2="235" stroke="#ef4444" stroke-width="2.5"/>
-          <text x="205" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626" pointer-events="none">反驳</text>
-          <text x="285" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626" pointer-events="none">回应</text>
-          <text x="205" y="278" text-anchor="middle" font-size="10" fill="#ef4444" pointer-events="none">(Rebuttal)</text>
-          <text x="285" y="278" text-anchor="middle" font-size="10" fill="#ef4444" pointer-events="none">(Rebuttal)</text>
+          <text x="78" y="164" text-anchor="middle" font-size="11" fill="#b45309" pointer-events="none">Qualifier</text>
+          <line x1="110" y1="150" x2="330" y2="150" stroke="#1e293b" stroke-width="3.5"/>
+          <line class="fb-warrant" x1="175" y1="150" x2="235" y2="65" stroke="#0284c7" stroke-width="3"/>
+          <line class="fb-warrant" x1="255" y1="150" x2="315" y2="65" stroke="#0284c7" stroke-width="3"/>
+          <text x="205" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1" pointer-events="none">理由/佐证</text>
+          <text x="285" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1" pointer-events="none">资料/证据</text>
+          <text x="205" y="75" text-anchor="middle" font-size="10" fill="#0284c7" pointer-events="none">(Warrant)</text>
+          <text x="285" y="75" text-anchor="middle" font-size="10" fill="#0284c7" pointer-events="none">(Data)</text>
+          <line class="fb-rebuttal" x1="175" y1="150" x2="235" y2="235" stroke="#dc2626" stroke-width="3"/>
+          <line class="fb-rebuttal" x1="255" y1="150" x2="315" y2="235" stroke="#dc2626" stroke-width="3"/>
+          <text x="205" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c" pointer-events="none">反驳</text>
+          <text x="285" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c" pointer-events="none">回应</text>
+          <text x="205" y="278" text-anchor="middle" font-size="10" fill="#dc2626" pointer-events="none">(Rebuttal)</text>
+          <text x="285" y="278" text-anchor="middle" font-size="10" fill="#dc2626" pointer-events="none">(Rebuttal)</text>
         </svg>
         <div class="fish-legend">
           <div class="fl-item" data-fish="claim">
@@ -586,7 +653,7 @@ footer{
     <h2>论文框架：章节结构</h2>
     <p>论文按标准实证研究结构组织，每一部分各司其职。</p>
   </div>
-  <div class="card">
+  <div class="framework-card">
     <table class="design-table">
       <tr><th>论文部分</th><th>在做什么</th><th>关键内容</th></tr>
       <tr><td>Abstract</td><td>摘要</td><td>研究背景、设计、主要发现</td></tr>
@@ -606,7 +673,7 @@ footer{
   <div class="section-head">
     <div class="kicker">Design</div>
     <h2>实验设计：做了什么、怎么收集数据、为什么</h2>
-    <p>四组 × 六主题 × 约四个月。下面分三步讲清楚。</p>
+    <p>四组 × 六主题 × 约四个月。下面分四步讲清楚。</p>
   </div>
 
   <!-- 做了什么 -->
@@ -759,7 +826,7 @@ footer{
     <tr><td>Warrant（主题4）</td><td>E1 高于 E2，E2 高于 E3</td><td>E1 vs E2 <span class="star">*</span></td></tr>
     <tr><td>Rebuttal（主题4）</td><td>E2 无显著下降，E3 显著下降</td><td>E3 下降 <span class="star">***</span></td></tr>
   </table>
-  <p style="font-size:13px;color:var(--muted);margin-top:8px">注：<span class="star">*</span> p&lt;.05，<span class="star">**</span> p&lt;.01，<span class="star">***</span> p&lt;.001。</p>
+  <p class="sig-note">注：<span class="star">*</span> p&lt;.05，<span class="star">**</span> p&lt;.01，<span class="star">***</span> p&lt;.001。</p>
 
   <!-- 讨论 -->
   <div class="discussion-box">
@@ -846,9 +913,7 @@ footer{
 </div>
 
 <script>
-/* =========================================================
-   0. 术语词典
-   ========================================================= */
+/* ============ 术语词典 ============ */
 const TERMS = {
   tap:{t:'TAP（Toulmin 论证模式）',c:'理论',g:'高质量论证包含主张、数据、理由、支持、反驳、限定六个要素。',h:'因中学生难区分 data、warrant、backing，本研究将其简化为四要素：claim、warrant、rebuttal、qualifier。'},
   gai:{t:'生成式 AI（GAI）',c:'理论',g:'能根据提示自动生成文本、图像、代码等内容的 AI，如 ChatGPT、Copilot。',h:'学生可自由使用 ChatGPT、Copilot 等帮助科学论证；研究担心依赖，因此在后三个主题对 E2、E3 撤除 GAI。'},
@@ -877,9 +942,7 @@ const TERMS = {
   mediator:{t:'中介变量',c:'方法',g:'解释自变量如何影响因变量的中间机制变量。',h:'动机在本研究中是结果变量，未作为中介变量分析。'}
 };
 
-/* =========================================================
-   1. 首页三阶段
-   ========================================================= */
+/* ============ 首页三阶段 ============ */
 const STAGES = {
   1:{
     cls:'bad',
@@ -936,25 +999,25 @@ const STAGES = {
     if(s === 3){
       right.innerHTML = `
       <svg class="fish-svg" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="355" cy="160" rx="78" ry="52" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+        <ellipse cx="355" cy="160" rx="78" ry="52" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
         <text x="355" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#4f46e5">主张</text>
         <text x="355" y="174" text-anchor="middle" font-size="12" fill="#6366f1">Claim</text>
-        <polygon points="45,160 100,118 100,202" fill="#fff7ed" stroke="#f59e0b" stroke-width="2.5"/>
+        <polygon points="45,160 100,118 100,202" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
         <text x="68" y="155" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">限定</text>
-        <text x="68" y="174" text-anchor="middle" font-size="11" fill="#f59e0b">Qualifier</text>
-        <line x1="100" y1="160" x2="277" y2="160" stroke="#334155" stroke-width="3"/>
-        <line x1="150" y1="160" x2="205" y2="75" stroke="#0ea5e9" stroke-width="2.5"/>
-        <line x1="230" y1="160" x2="285" y2="75" stroke="#0ea5e9" stroke-width="2.5"/>
-        <text x="177" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0284c7">理由/佐证</text>
-        <text x="257" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0284c7">资料/证据</text>
-        <line x1="150" y1="160" x2="205" y2="245" stroke="#ef4444" stroke-width="2.5"/>
-        <line x1="230" y1="160" x2="285" y2="245" stroke="#ef4444" stroke-width="2.5"/>
-        <text x="177" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">反驳</text>
-        <text x="257" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">回应</text>
-        <text x="230" y="315" text-anchor="middle" font-size="12" fill="#94a3b8">每个位置最多放 4 条论证</text>
+        <text x="68" y="174" text-anchor="middle" font-size="11" fill="#b45309">Qualifier</text>
+        <line x1="100" y1="160" x2="277" y2="160" stroke="#1e293b" stroke-width="3.5"/>
+        <line x1="150" y1="160" x2="205" y2="75" stroke="#0284c7" stroke-width="3"/>
+        <line x1="230" y1="160" x2="285" y2="75" stroke="#0284c7" stroke-width="3"/>
+        <text x="177" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1">理由/佐证</text>
+        <text x="257" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1">资料/证据</text>
+        <line x1="150" y1="160" x2="205" y2="245" stroke="#dc2626" stroke-width="3"/>
+        <line x1="230" y1="160" x2="285" y2="245" stroke="#dc2626" stroke-width="3"/>
+        <text x="177" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">反驳</text>
+        <text x="257" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">回应</text>
+        <text x="230" y="315" text-anchor="middle" font-size="12" fill="#64748b">每个位置最多放 4 条论证</text>
       </svg>`;
     }else{
-      right.innerHTML = `<div style="color:#94a3b8;font-size:14px;text-align:center;padding:40px 16px;border:1px dashed rgba(255,255,255,.25);border-radius:14px;width:100%">
+      right.innerHTML = `<div style="color:#cbd5e1;font-size:14px;text-align:center;padding:40px 16px;border:1px dashed rgba(255,255,255,.3);border-radius:14px;width:100%;background:rgba(15,23,42,.2)">
         ${s===1?'纯 TAP 阶段还没有视觉支架':'AI 阶段还没有鱼骨图，论证仍以文本形式呈现'}
       </div>`;
     }
@@ -970,9 +1033,7 @@ const STAGES = {
   render(1);
 })();
 
-/* =========================================================
-   2. 结果图表
-   ========================================================= */
+/* ============ 结果图表 ============ */
 const THEMES = ['主题1','主题2','主题3','主题4','主题5','主题6'];
 const COLORS = {E1:'#4f46e5', E2:'#0ea5e9', E3:'#f59e0b', C:'#94a3b8'};
 const GROUP_NAME = {E1:'E1 整合支架+GAI', E2:'E2 整合支架（后撤GAI）', E3:'E3 最小支架（后撤GAI）', C:'C 控制组'};
@@ -1079,11 +1140,10 @@ const METRICS = {
     const Y = v => pad.t + plotH * (1 - (v - m.yMin) / (m.yMax - m.yMin));
     let s = '';
 
-    // 高亮主题 4 的浅色竖带
     if(highlightT4){
       const x1 = X(2.5), x2 = X(3.5);
-      s += `<rect x="${x1}" y="${pad.t}" width="${x2-x1}" height="${plotH}" fill="#fef3c7" opacity="0.55"/>`;
-      s += `<text x="${(x1+x2)/2}" y="${pad.t+16}" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">主题4</text>`;
+      s += `<rect x="${x1}" y="${pad.t}" width="${x2-x1}" height="${plotH}" fill="#fef3c7" opacity="0.65"/>`;
+      s += `<text x="${(x1+x2)/2}" y="${pad.t+16}" text-anchor="middle" font-size="12" font-weight="800" fill="#b45309">主题4</text>`;
     }
 
     m.ticks.forEach(t => {
@@ -1095,10 +1155,9 @@ const METRICS = {
       s += `<text x="${X(i)}" y="${H-pad.b+26}" text-anchor="middle" fill="#64748b" font-size="13">${t}</text>`;
     });
 
-    // GAI 撤除线
     const xm = X(2.5);
     s += `<line x1="${xm}" y1="${pad.t-6}" x2="${xm}" y2="${H-pad.b}" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 5"/>`;
-    s += `<text x="${xm+8}" y="${pad.t-10}" fill="#b45309" font-size="12" font-weight="600">GAI 撤除点</text>`;
+    s += `<text x="${xm+8}" y="${pad.t-10}" fill="#b45309" font-size="12" font-weight="700">GAI 撤除点</text>`;
 
     Object.keys(m.series).forEach(g => {
       if(hidden[g]) return;
@@ -1146,9 +1205,7 @@ const METRICS = {
   render();
 })();
 
-/* =========================================================
-   3. 术语内联高亮 + 弹出卡
-   ========================================================= */
+/* ============ 术语内联高亮 + 弹出卡 ============ */
 (function(){
   const card = document.getElementById('termCard');
   const tcTitle = document.getElementById('tcTitle');
@@ -1203,9 +1260,7 @@ const METRICS = {
   });
 })();
 
-/* =========================================================
-   4. 鱼骨图图例点击：带 Level 0/1/2 示例
-   ========================================================= */
+/* ============ 鱼骨图图例：悬停高亮 + 点击弹示例 ============ */
 (function(){
   const FISH_DATA = {
     claim:{
@@ -1248,22 +1303,20 @@ const METRICS = {
 
   document.querySelectorAll('.fl-item').forEach(item => {
     const key = item.dataset.fish;
-    // 悬停高亮 SVG
     item.addEventListener('mouseenter', () => {
       const svg = document.getElementById('fishboneSVG');
-      svg.classList.add('highlight');
-      svg.querySelectorAll('.fb-'+key).forEach(el => {
-        el.style.filter = 'drop-shadow(0 0 6px rgba(79,70,229,.7))';
+      if(svg) svg.classList.add('highlight');
+      document.querySelectorAll('.fb-'+key).forEach(el => {
+        el.style.filter = 'drop-shadow(0 0 8px rgba(79,70,229,.85))';
       });
     });
     item.addEventListener('mouseleave', () => {
       const svg = document.getElementById('fishboneSVG');
-      svg.classList.remove('highlight');
-      svg.querySelectorAll('[class^="fb-"]').forEach(el => {
+      if(svg) svg.classList.remove('highlight');
+      document.querySelectorAll('[class^="fb-"]').forEach(el => {
         el.style.filter = '';
       });
     });
-    // 点击弹出卡片
     item.addEventListener('click', () => {
       const d = FISH_DATA[key];
       const card = document.getElementById('termCard');
@@ -1272,7 +1325,7 @@ const METRICS = {
       document.getElementById('tcGeneral').textContent = d.g;
       const here = document.getElementById('tcHere');
       here.innerHTML = `<b>${d.h}</b><br>` + d.levels.map(x =>
-        `<span style="display:inline-block;min-width:52px;color:#b45309;font-weight:700">${x.l}</span> ${x.ex}`
+        `<span style="display:inline-block;min-width:58px;color:#b45309;font-weight:700">${x.l}</span> ${x.ex}`
       ).join('<br>');
       card.classList.add('show');
       const r = item.getBoundingClientRect();
@@ -1282,9 +1335,7 @@ const METRICS = {
   });
 })();
 
-/* =========================================================
-   5. 返回顶部按钮
-   ========================================================= */
+/* ============ 返回顶部 ============ */
 (function(){
   const btn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
@@ -1295,9 +1346,7 @@ const METRICS = {
   });
 })();
 
-/* =========================================================
-   6. 滚动淡入
-   ========================================================= */
+/* ============ 滚动淡入 ============ */
 (function(){
   const els = document.querySelectorAll('.reveal, .ov-card, .theory-block, .card, .pc-item, .tl-step');
   if(!('IntersectionObserver' in window)){
