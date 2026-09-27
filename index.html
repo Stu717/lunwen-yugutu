@@ -39,17 +39,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .nav-inner a:hover{background:var(--soft);color:var(--primary)}
 
-/* ===== 通用 ===== */
 .section{max-width:1100px;margin:0 auto;padding:70px 16px}
 .section-head{margin-bottom:32px}
-.section-head .kicker{
-  font-size:13px;font-weight:700;letter-spacing:.12em;
-  color:var(--primary);text-transform:uppercase;
-}
+.section-head .kicker{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--primary);text-transform:uppercase}
 .section-head h2{font-size:28px;line-height:1.35;margin:8px 0 10px;letter-spacing:-.01em}
 .section-head p{color:var(--muted);font-size:15.5px;max-width:800px}
 
-/* 卡片：加深边框，提高对比 */
 .card{
   background:#fff;border:1px solid #cbd5e1;
   border-radius:16px;padding:24px;
@@ -66,10 +61,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .btn:hover{background:#4338ca;transform:translateY(-1px)}
 .btn.ghost{background:#fff;color:var(--primary);border:1px solid #c7d2fe}
 .btn.ghost:hover{background:var(--soft)}
-.btn.small{padding:7px 15px;font-size:13.5px}
-.btn.active{background:var(--amber);color:#fff;border-color:var(--amber)}
 
-/* 滚动淡入 */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -133,7 +125,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .stage-note b{color:#fcd34d}
 
-/* 首页→理论过渡卡片 */
 .bridge-card{
   margin-top:20px;background:rgba(252,211,77,.18);
   border:1px solid rgba(252,211,77,.45);border-radius:12px;
@@ -143,10 +134,27 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .bridge-card .icon{font-size:22px;flex-shrink:0;line-height:1}
 .bridge-card b{color:#fcd34d}
 
-/* 鱼骨图 */
-.fish-svg{width:100%;max-width:480px;height:auto}
+/* 首页鱼骨图浅色底框 */
+.fish-preview-wrap{
+  background:linear-gradient(135deg,#ffffff 0%,#eef2ff 100%);
+  border:1.5px solid #a5b4fc;
+  border-radius:18px;
+  padding:24px 18px;
+  box-shadow:0 8px 24px -12px rgba(0,0,0,.35),
+             inset 0 1px 0 rgba(255,255,255,.9);
+  width:100%;
+  max-width:520px;
+}
+.fish-preview-wrap .fish-preview-title{
+  font-size:13px;
+  font-weight:700;
+  color:#4338ca;
+  text-align:center;
+  margin-bottom:8px;
+  letter-spacing:.04em;
+}
+.fish-svg{width:100%;max-width:480px;height:auto;display:block;margin:0 auto}
 
-/* ===== 速览卡 ===== */
 .overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .ov-card{
   background:#fff;border:1px solid #cbd5e1;border-radius:16px;padding:24px;
@@ -164,8 +172,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .ov-card h3{font-size:16.5px;margin-bottom:8px}
 .ov-card p{font-size:14px;color:var(--muted);line-height:1.7}
 
-/* ===== 理论与方法 ===== */
-/* 每个理论块做成独立的卡片，浅色底 */
 .theory-block{
   margin-bottom:22px;
   background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);
@@ -176,23 +182,19 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .theory-block h3{font-size:18px;margin-bottom:12px;color:#1e293b}
 .theory-block p{font-size:15px;color:#334155;line-height:1.8;margin-bottom:10px}
-/* note：浅紫底，对比更强 */
 .theory-block .note{
   font-size:14px;color:#3730a3;background:#e0e7ff;
   border-left:3px solid var(--primary);
   padding:14px 18px;border-radius:0 10px 10px 0;margin-top:12px;line-height:1.75;
 }
-/* theory-block 内的表格，白底 */
 .theory-block .design-table{background:#fff}
 
-/* 研究问题卡片 */
 .rq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
 @media(max-width:760px){.rq-grid{grid-template-columns:1fr}}
 .rq-card{
   background:linear-gradient(135deg,#e0e7ff 0%,#eef2ff 100%);
   border:1.5px solid #a5b4fc;border-radius:14px;padding:20px;
   box-shadow:0 4px 14px -10px rgba(79,70,229,.35);
-  position:relative;overflow:hidden;
 }
 .rq-card .rq-label{
   display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;
@@ -200,7 +202,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .rq-card p{font-size:14.5px;color:#1e1b4b;line-height:1.75;margin:0}
 
-/* 鱼骨图底衬：明显的浅色渐变 + 边框 */
 .fishbone-wrap-bg{
   background:linear-gradient(135deg,#e0e7ff 0%,#eef2ff 45%,#e0f2fe 100%);
   border-radius:18px;padding:28px;border:1.5px solid #a5b4fc;
@@ -208,16 +209,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
              0 8px 24px -12px rgba(79,70,229,.35);
   margin-top:16px;
 }
-.fish-demo{
-  display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;
-}
+.fish-demo{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
 .fish-demo svg{flex:1;min-width:320px;max-width:540px;transition:.35s}
 .fish-demo svg.highlight{transform:scale(1.015)}
 .fish-legend{flex:1;min-width:240px}
 .fish-legend .fl-item{
   display:flex;gap:10px;align-items:flex-start;font-size:14.5px;
   padding:12px 14px;margin-bottom:6px;
-  background:rgba(255,255,255,.7);border:1px solid #e2e8f0;
+  background:rgba(255,255,255,.75);border:1px solid #e2e8f0;
   border-radius:10px;cursor:pointer;transition:.2s;
 }
 .fish-legend .fl-item:hover{
@@ -229,7 +228,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .fish-legend .fl-item b{display:block;font-size:15px;color:#1e293b}
 .fish-legend .fl-item span{color:var(--muted);font-size:13.5px}
 
-/* ===== 表格：表头深底 + 斑马纹 ===== */
 .design-table{
   width:100%;border-collapse:separate;border-spacing:0;
   font-size:14px;margin-top:10px;
@@ -244,7 +242,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .design-table th{
   background:#e0e7ff;font-weight:800;color:#3730a3;font-size:13.5px;
   border-bottom:2px solid #a5b4fc;
-  letter-spacing:.02em;
 }
 .design-table tr:nth-child(even) td{background:#f8fafc}
 .design-table tr:hover td{background:#eef2ff}
@@ -257,13 +254,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .tag-nogai{background:#fff7ed;color:#c2410c}
 .tag-ctrl{background:#f1f5f9;color:#64748b}
 
-/* ===== 论文框架 ===== */
 .framework-card{
   background:#fff;border:1px solid #cbd5e1;border-radius:16px;padding:26px;
   box-shadow:0 2px 8px -6px rgba(15,23,42,.1);
 }
 
-/* ===== 实验设计 ===== */
 .fig1{
   background:linear-gradient(180deg,#eef2ff 0%,#fff 100%);
   border:1.5px solid #c7d2fe;border-radius:16px;padding:26px;
@@ -285,7 +280,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .fig1-label{font-size:13px;color:#6366f1;font-weight:600;margin-top:4px}
 .fig1-caption{font-size:13px;color:var(--muted);text-align:center;margin-top:16px;font-style:italic}
 
-/* 数据收集时间线：白底+彩色顶边+阴影 */
 .timeline-bar{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
 .tl-step{
   flex:1;min-width:140px;
@@ -300,7 +294,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .tl-step b{display:block;font-size:13.5px;color:var(--primary);margin-bottom:6px}
 .tl-step span{color:#475569;font-size:12.5px;line-height:1.65;display:block}
 
-/* ===== 结果 ===== */
 .metric-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;align-items:center}
 .mtab{
   font-size:14px;font-weight:600;padding:9px 16px;border-radius:9px;
@@ -333,8 +326,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   background:#e0e7ff;border-radius:10px;border-left:3px solid var(--primary);
   line-height:1.75;
 }
-
-/* 显著性表格 */
 .sig-table{
   width:100%;border-collapse:separate;border-spacing:0;
   font-size:13.5px;margin-top:18px;
@@ -361,7 +352,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .bar-legend{display:flex;gap:20px;justify-content:center;margin-top:10px;font-size:13.5px;color:var(--muted)}
 .bar-legend i{width:14px;height:14px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:-2px}
 
-/* 讨论区：浅蓝底 */
 .discussion-box{
   background:linear-gradient(135deg,#e0f2fe 0%,#eef2ff 100%);
   border:1.5px solid #a5b4fc;border-radius:16px;padding:24px;margin-top:20px;
@@ -372,7 +362,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .discussion-box ul{margin-left:20px;color:#334155;font-size:14.5px}
 .discussion-box li{margin-bottom:8px}
 
-/* ===== 优缺点 ===== */
 .proscons{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:760px){.proscons{grid-template-columns:1fr}}
 .pc-col h3{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
@@ -388,7 +377,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .pc-item:hover{transform:translateY(-2px);box-shadow:0 8px 20px -14px rgba(79,70,229,.4);border-color:#a5b4fc}
 .pc-item b{color:#1e293b}
 
-/* 教学启示 */
 .teach-box{
   margin-top:24px;background:linear-gradient(135deg,#e0e7ff 0%,#e0f2fe 100%);
   border:1.5px solid #a5b4fc;border-radius:16px;padding:26px;
@@ -405,7 +393,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .teach-card b{display:block;color:var(--primary);margin-bottom:6px;font-size:14.5px}
 .teach-card span{color:#475569}
 
-/* ===== 术语 ===== */
 .term{
   text-decoration:underline;
   text-decoration-color:var(--primary);
@@ -445,15 +432,22 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 }
 .term-card .tc-row{margin-top:10px;color:#475569}
 .term-card .tc-row b{color:#334155}
-.term-card .tc-row.here{background:#fef3c7;border-radius:8px;padding:10px 12px;margin-top:12px}
+.term-card .tc-row.here{background:#fef3c7;border-radius:8px;padding:12px 14px;margin-top:12px;color:#78350f}
 .term-card .tc-row.here b{color:#b45309}
+.term-card .tc-row.here .lvl-row{
+  display:flex;gap:8px;align-items:flex-start;margin-top:8px;
+}
+.term-card .tc-row.here .lvl-tag{
+  display:inline-block;
+  min-width:62px;flex-shrink:0;
+  font-weight:800;color:#b45309;
+}
 .term-card .tc-close{
   position:absolute;top:12px;right:14px;font-size:18px;color:#94a3b8;
   line-height:1;padding:4px;
 }
 .term-card .tc-close:hover{color:var(--ink)}
 
-/* 返回顶部 */
 .back-to-top{
   position:fixed;bottom:28px;right:28px;z-index:200;
   width:46px;height:46px;border-radius:50%;
@@ -474,7 +468,6 @@ footer{
 </head>
 <body>
 
-<!-- ============ 导航 ============ -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="#hero">首页</a>
@@ -487,7 +480,6 @@ footer{
   </div>
 </nav>
 
-<!-- ============ 首页：三阶段案例 ============ -->
 <header class="hero" id="hero">
   <div class="hero-inner">
     <div class="tag">交互式论文解读 · 教育本科生友好版</div>
@@ -520,7 +512,6 @@ footer{
   </div>
 </header>
 
-<!-- ============ 研究速览 ============ -->
 <section class="section reveal" id="overview">
   <div class="section-head">
     <div class="kicker">Overview</div>
@@ -536,7 +527,6 @@ footer{
   </div>
 </section>
 
-<!-- ============ 理论与方法 ============ -->
 <section class="section reveal" id="theory">
   <div class="section-head">
     <div class="kicker">Theory &amp; Method</div>
@@ -544,7 +534,6 @@ footer{
     <p>先看两个研究问题，再看四个理论支柱，最后看研究方法。</p>
   </div>
 
-  <!-- 研究问题 -->
   <div class="theory-block">
     <h3>研究问题</h3>
     <div class="rq-grid">
@@ -559,14 +548,12 @@ footer{
     </div>
   </div>
 
-  <!-- 1. 双编码 -->
   <div class="theory-block">
     <h3>① <span class="term" data-key="dual">双编码理论</span>：为什么需要视觉支架？</h3>
     <p>双编码理论认为，语言和视觉两个通道同时加工信息时，学习效果更好。GAI 主要靠文本交互，学生如果只读文字，视觉通道是闲置的。</p>
     <div class="note">本研究在 GAI 文本交互之外加入鱼骨图，形成“文本 + 视觉”的双通道支持，既帮助构建论证，也帮助在 GAI 撤除后维持表现。</div>
   </div>
 
-  <!-- 2. TAP -->
   <div class="theory-block">
     <h3>② <span class="term" data-key="tap">TAP</span>：六要素 → 四要素</h3>
     <p>Toulmin 论证模式（TAP）认为，高质量论证包含六个成分：主张、数据、理由、支持、反驳、限定。但 TAP 结构抽象，中学生很难区分 data、warrant、backing。</p>
@@ -574,13 +561,11 @@ footer{
     <div class="note">简化后的四要素，正是鱼骨图四个位置的依据：鱼头放 claim，上骨放 warrant，下骨放 rebuttal，鱼尾放 qualifier。</div>
   </div>
 
-  <!-- 3. 鱼骨图（4要素简化版） -->
   <div class="theory-block">
     <h3>③ <span class="term" data-key="fishbone">鱼骨图</span>：TAP 的可视化落地（4 要素版）</h3>
     <p>鱼骨图由日本质量管理专家石川馨于 1960 年代提出，最初用于分析产品质量问题的原因。本研究把它从“因果分析工具”改造成“论证结构工具”。</p>
     <p><strong>注意区别</strong>：首页案例保留了完整的 TAP 六要素；这里展示的是研究者简化后的 4 要素鱼骨图。</p>
 
-    <!-- 鱼骨图：明显浅色底 -->
     <div class="fishbone-wrap-bg">
       <div class="fish-demo">
         <svg class="fish-svg" id="fishboneSVG" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
@@ -624,17 +609,15 @@ footer{
         </div>
       </div>
     </div>
-    <div class="note">每个位置最多放 4 条论证，自动出现在讨论区，也可点击鱼骨图上的点查看。点击左侧图例，可看到该位置的 Level 0/1/2 示例句。</div>
+    <div class="note">每个位置最多放 4 条论证，自动出现在讨论区，也可点击鱼骨图上的点查看。<b>点击左侧图例，可看到该位置的 Level 0/1/2 示例句。</b></div>
   </div>
 
-  <!-- 4. 社会建构主义 -->
   <div class="theory-block">
     <h3>④ <span class="term" data-key="social">社会建构主义</span>：同伴互动</h3>
     <p>知识通过人与人的社会互动建构。FLAP 平台采用小组合作（3-4 人异质分组）和讨论区互评，学生可查看同伴论证并追问。</p>
     <div class="note">论文发现，反驳（rebuttal）更依赖同伴互动，而非 GAI。GAI 撤除后，E2 组的反驳没有显著下降，部分原因就是同伴讨论在起作用。</div>
   </div>
 
-  <!-- 5. 研究方法 -->
   <div class="theory-block">
     <h3>⑤ 研究方法：准实验 + 混合设计</h3>
     <p>研究采用<span class="term" data-key="quasi">准实验设计</span>，无法随机分配学生，使用现成班级。211 名七年级学生来自 8 个班，分为四组。</p>
@@ -646,7 +629,6 @@ footer{
   </div>
 </section>
 
-<!-- ============ 论文框架（只保留章节结构） ============ -->
 <section class="section reveal" id="framework">
   <div class="section-head">
     <div class="kicker">Structure</div>
@@ -668,7 +650,6 @@ footer{
   </div>
 </section>
 
-<!-- ============ 实验设计（含研究流程 + 数据收集时间线） ============ -->
 <section class="section reveal" id="design">
   <div class="section-head">
     <div class="kicker">Design</div>
@@ -676,48 +657,20 @@ footer{
     <p>四组 × 六主题 × 约四个月。下面分四步讲清楚。</p>
   </div>
 
-  <!-- 做了什么 -->
   <div class="theory-block">
     <h3>① 做了什么：四组条件</h3>
     <table class="design-table">
-      <tr>
-        <th>组别</th><th>前三主题</th><th>后三主题</th><th>人数</th><th>角色</th>
-      </tr>
-      <tr>
-        <td><b>E1</b></td>
-        <td><span class="tag tag-gai">整合视觉支架 + GAI</span></td>
-        <td><span class="tag tag-gai">整合视觉支架 + GAI</span></td>
-        <td>53</td>
-        <td>全程最高支持，上限基准</td>
-      </tr>
-      <tr>
-        <td><b>E2</b></td>
-        <td><span class="tag tag-gai">整合视觉支架 + GAI</span></td>
-        <td><span class="tag tag-nogai">仅整合视觉支架</span></td>
-        <td>52</td>
-        <td>关键组：检验视觉支架能否补偿 GAI 撤除</td>
-      </tr>
-      <tr>
-        <td><b>E3</b></td>
-        <td><span class="tag tag-gai">最小支架 + GAI</span></td>
-        <td><span class="tag tag-nogai">仅最小支架</span></td>
-        <td>52</td>
-        <td>低视觉支架对照</td>
-      </tr>
-      <tr>
-        <td><b>C</b></td>
-        <td><span class="tag tag-ctrl">教师中心传统教学</span></td>
-        <td><span class="tag tag-ctrl">教师中心传统教学</span></td>
-        <td>54</td>
-        <td>真实课堂参照基线</td>
-      </tr>
+      <tr><th>组别</th><th>前三主题</th><th>后三主题</th><th>人数</th><th>角色</th></tr>
+      <tr><td><b>E1</b></td><td><span class="tag tag-gai">整合视觉支架 + GAI</span></td><td><span class="tag tag-gai">整合视觉支架 + GAI</span></td><td>53</td><td>全程最高支持，上限基准</td></tr>
+      <tr><td><b>E2</b></td><td><span class="tag tag-gai">整合视觉支架 + GAI</span></td><td><span class="tag tag-nogai">仅整合视觉支架</span></td><td>52</td><td>关键组：检验视觉支架能否补偿 GAI 撤除</td></tr>
+      <tr><td><b>E3</b></td><td><span class="tag tag-gai">最小支架 + GAI</span></td><td><span class="tag tag-nogai">仅最小支架</span></td><td>52</td><td>低视觉支架对照</td></tr>
+      <tr><td><b>C</b></td><td><span class="tag tag-ctrl">教师中心传统教学</span></td><td><span class="tag tag-ctrl">教师中心传统教学</span></td><td>54</td><td>真实课堂参照基线</td></tr>
     </table>
     <div class="note">
       六个主题：纸飞机（空气阻力）、鸡蛋浮沉（密度与浮力）、橘子成熟（植物激素）、苹果氧化（酶与氧化还原）、岩层（岩石类型与风化）、磁铁与黑色物质（磁性）。每个主题约 45-90 分钟探究 + 45 分钟 FLAP 在线论证。干预约四个月，平均每周 2 小时。
     </div>
   </div>
 
-  <!-- 研究流程 -->
   <div class="theory-block">
     <h3>② 研究流程</h3>
     <div class="fig1">
@@ -727,9 +680,7 @@ footer{
           <div class="fig1-node dark">SKT</div>
         </div>
         <div class="fig1-arrow">↓</div>
-        <div class="fig1-row">
-          <div class="fig1-node hl">入门课程 Introductory Course</div>
-        </div>
+        <div class="fig1-row"><div class="fig1-node hl">入门课程 Introductory Course</div></div>
         <div class="fig1-arrow">↓</div>
         <div class="fig1-row">
           <div class="fig1-node">LLMS（如 ChatGPT）</div>
@@ -745,9 +696,7 @@ footer{
         </div>
         <div class="fig1-label">探究活动 Inquiry Activities</div>
         <div class="fig1-arrow">↓</div>
-        <div class="fig1-row">
-          <div class="fig1-node hl">FLAP 在线学习</div>
-        </div>
+        <div class="fig1-row"><div class="fig1-node hl">FLAP 在线学习</div></div>
         <div class="fig1-arrow">↓</div>
         <div class="fig1-row">
           <div class="fig1-node small">视觉支架界面（E1、E2）</div>
@@ -768,7 +717,6 @@ footer{
     </div>
   </div>
 
-  <!-- 数据收集时间线 -->
   <div class="theory-block">
     <h3>③ 数据收集时间线</h3>
     <div class="timeline-bar">
@@ -780,7 +728,6 @@ footer{
     </div>
   </div>
 
-  <!-- 为什么这么做 -->
   <div class="theory-block">
     <h3>④ 为什么这么做：三个假设的检验逻辑</h3>
     <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
@@ -803,7 +750,6 @@ footer{
   </div>
 </section>
 
-<!-- ============ 结果与讨论 ============ -->
 <section class="section reveal" id="results">
   <div class="section-head">
     <div class="kicker">Results &amp; Discussion</div>
@@ -818,7 +764,6 @@ footer{
   <div class="chart-box" id="chartBox"></div>
   <div class="metric-note" id="metricNote"></div>
 
-  <!-- 显著性表格 -->
   <table class="sig-table">
     <tr><th>指标</th><th>关键发现</th><th>显著性</th></tr>
     <tr><td>SKT 延迟测</td><td>E1 &gt; E2 &gt; E3 &gt; C</td><td>E1 vs E2 <span class="star">*</span>；E1/E2 vs E3/C <span class="star">***</span></td></tr>
@@ -828,7 +773,6 @@ footer{
   </table>
   <p class="sig-note">注：<span class="star">*</span> p&lt;.05，<span class="star">**</span> p&lt;.01，<span class="star">***</span> p&lt;.001。</p>
 
-  <!-- 讨论 -->
   <div class="discussion-box">
     <h4>💬 论文核心讨论要点</h4>
     <p><b>1. 为什么 E2 组恢复得更好？</b></p>
@@ -848,7 +792,6 @@ footer{
   </div>
 </section>
 
-<!-- ============ 优点与缺点（精简） ============ -->
 <section class="section reveal" id="proscons">
   <div class="section-head">
     <div class="kicker">Evaluation</div>
@@ -873,26 +816,13 @@ footer{
     </div>
   </div>
 
-  <!-- 教学启示 -->
   <div class="teach-box">
     <h4>🎓 对教学实践的启示</h4>
     <div class="teach-grid">
-      <div class="teach-card">
-        <b>什么时候撤除 GAI？</b>
-        <span>先让学生用 GAI 熟悉论证结构（前 3 个主题），再逐步撤除，同时保留视觉支架。</span>
-      </div>
-      <div class="teach-card">
-        <b>视觉支架怎么设计？</b>
-        <span>把抽象结构（TAP）变成空间结构（鱼骨图），每个位置限制数量（4 条），降低认知负荷。</span>
-      </div>
-      <div class="teach-card">
-        <b>哪些论证成分最难？</b>
-        <span>Rebuttal 和 Qualifier 最难，需要同伴互动和教师引导，不能只靠 GAI。</span>
-      </div>
-      <div class="teach-card">
-        <b>如何避免 GAI 依赖？</b>
-        <span>不要只让学生“问 AI 要答案”，要让他们用视觉支架组织自己的推理，再和 AI 对比。</span>
-      </div>
+      <div class="teach-card"><b>什么时候撤除 GAI？</b><span>先让学生用 GAI 熟悉论证结构（前 3 个主题），再逐步撤除，同时保留视觉支架。</span></div>
+      <div class="teach-card"><b>视觉支架怎么设计？</b><span>把抽象结构（TAP）变成空间结构（鱼骨图），每个位置限制数量（4 条），降低认知负荷。</span></div>
+      <div class="teach-card"><b>哪些论证成分最难？</b><span>Rebuttal 和 Qualifier 最难，需要同伴互动和教师引导，不能只靠 GAI。</span></div>
+      <div class="teach-card"><b>如何避免 GAI 依赖？</b><span>不要只让学生“问 AI 要答案”，要让他们用视觉支架组织自己的推理，再和 AI 对比。</span></div>
     </div>
   </div>
 </section>
@@ -904,12 +834,11 @@ footer{
 
 <button class="back-to-top" id="backToTop" title="返回顶部">↑</button>
 
-<!-- 术语弹出卡 -->
 <div class="term-card" id="termCard">
   <button class="tc-close" id="termClose">×</button>
   <div class="tc-head"><h4 id="tcTitle"></h4><span class="tc-cat" id="tcCat"></span></div>
   <div class="tc-row"><b>一般解释：</b><span id="tcGeneral"></span></div>
-  <div class="tc-row here"><b>本论文中：</b><span id="tcHere"></span></div>
+  <div class="tc-row here" id="tcHereRow"></div>
 </div>
 
 <script>
@@ -931,15 +860,7 @@ const TERMS = {
   slmq:{t:'SLMQ',c:'工具',g:'学习动机问卷。',h:'包含任务价值、参与、享受、自我效能四类，每类 6 题，五点李克特量表，满分 120。'},
   ancova:{t:'ANCOVA',c:'统计',g:'协方差分析，在统计上控制一个变量后再比较组间差异。',h:'以前测分数为协变量，比较四组在 SKT 后测和延迟后测上的差异。'},
   rm:{t:'重复测量 ANOVA',c:'统计',g:'对同一组被试多次测量结果进行方差分析。',h:'用于分析 SLMQ 和四类论证成分在六个主题中的变化趋势。'},
-  kripp:{t:'Krippendorff’s α',c:'统计',g:'衡量多个编码者之间一致程度的信度指标。',h:'论证类别 α = .91，论证质量 α = .86，说明编码结果较可靠。'},
-  level2:{t:'Level 2 论证',c:'论证',g:'高质量论证的评分等级。',h:'同时满足三个条件：有实证或理论支持、科学准确、逻辑连贯，得 2 分。Level 1 得 1 分，Level 0 得 0 分。'},
-  srl:{t:'自我调节学习',c:'理论',g:'学习者计划、监控并调整自己学习过程的能力。',h:'论文用它解释 GAI 撤除后学生如何逐步恢复，以及视觉支架如何支持重新参与推理。'},
-  overrel:{t:'过度依赖',c:'理论',g:'学习者过度依赖 AI 给出的答案，减少独立思考。',h:'GAI 撤除后动机和论证质量下降；GAI 支持时学生论证方差低、内容多样性少。'},
-  ceiling:{t:'天花板/地板效应',c:'统计',g:'题目太易导致高分集中，或太难导致低分集中。',h:'Claim/warrant 高且下降明显，qualifier 低分难提升，都可能受天花板/地板效应影响。'},
-  eco:{t:'生态效度',c:'方法',g:'研究结果能推广到真实生活情境的程度。',h:'研究使用真实班级、真实科学主题、跨学科课程，生态效度较好。'},
-  internal:{t:'内部效度',c:'方法',g:'研究能排除其他解释、确认因果关系的程度。',h:'支架条件不完全可比、主题与 GAI 条件混淆，可能降低内部效度。'},
-  confound:{t:'混淆变量',c:'方法',g:'与自变量同时变化、可能干扰结果解释的变量。',h:'GAI 撤除与主题切换绑定，主题难度、熟悉度成为潜在混淆变量。'},
-  mediator:{t:'中介变量',c:'方法',g:'解释自变量如何影响因变量的中间机制变量。',h:'动机在本研究中是结果变量，未作为中介变量分析。'}
+  kripp:{t:'Krippendorff’s α',c:'统计',g:'衡量多个编码者之间一致程度的信度指标。',h:'论证类别 α = .91，论证质量 α = .86，说明编码结果较可靠。'}
 };
 
 /* ============ 首页三阶段 ============ */
@@ -997,25 +918,29 @@ const STAGES = {
     note.innerHTML = d.note;
 
     if(s === 3){
+      // 浅色背景框住鱼骨图
       right.innerHTML = `
-      <svg class="fish-svg" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="355" cy="160" rx="78" ry="52" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
-        <text x="355" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#4f46e5">主张</text>
-        <text x="355" y="174" text-anchor="middle" font-size="12" fill="#6366f1">Claim</text>
-        <polygon points="45,160 100,118 100,202" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
-        <text x="68" y="155" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">限定</text>
-        <text x="68" y="174" text-anchor="middle" font-size="11" fill="#b45309">Qualifier</text>
-        <line x1="100" y1="160" x2="277" y2="160" stroke="#1e293b" stroke-width="3.5"/>
-        <line x1="150" y1="160" x2="205" y2="75" stroke="#0284c7" stroke-width="3"/>
-        <line x1="230" y1="160" x2="285" y2="75" stroke="#0284c7" stroke-width="3"/>
-        <text x="177" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1">理由/佐证</text>
-        <text x="257" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1">资料/证据</text>
-        <line x1="150" y1="160" x2="205" y2="245" stroke="#dc2626" stroke-width="3"/>
-        <line x1="230" y1="160" x2="285" y2="245" stroke="#dc2626" stroke-width="3"/>
-        <text x="177" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">反驳</text>
-        <text x="257" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">回应</text>
-        <text x="230" y="315" text-anchor="middle" font-size="12" fill="#64748b">每个位置最多放 4 条论证</text>
-      </svg>`;
+      <div class="fish-preview-wrap">
+        <div class="fish-preview-title">4 要素鱼骨图（简化版）</div>
+        <svg class="fish-svg" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="355" cy="160" rx="78" ry="52" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
+          <text x="355" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#4f46e5">主张</text>
+          <text x="355" y="174" text-anchor="middle" font-size="12" fill="#6366f1">Claim</text>
+          <polygon points="45,160 100,118 100,202" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
+          <text x="68" y="155" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">限定</text>
+          <text x="68" y="174" text-anchor="middle" font-size="11" fill="#b45309">Qualifier</text>
+          <line x1="100" y1="160" x2="277" y2="160" stroke="#1e293b" stroke-width="3.5"/>
+          <line x1="150" y1="160" x2="205" y2="75" stroke="#0284c7" stroke-width="3"/>
+          <line x1="230" y1="160" x2="285" y2="75" stroke="#0284c7" stroke-width="3"/>
+          <text x="177" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1">理由/佐证</text>
+          <text x="257" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1">资料/证据</text>
+          <line x1="150" y1="160" x2="205" y2="245" stroke="#dc2626" stroke-width="3"/>
+          <line x1="230" y1="160" x2="285" y2="245" stroke="#dc2626" stroke-width="3"/>
+          <text x="177" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">反驳</text>
+          <text x="257" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">回应</text>
+          <text x="230" y="315" text-anchor="middle" font-size="12" fill="#64748b">每个位置最多放 4 条论证</text>
+        </svg>
+      </div>`;
     }else{
       right.innerHTML = `<div style="color:#cbd5e1;font-size:14px;text-align:center;padding:40px 16px;border:1px dashed rgba(255,255,255,.3);border-radius:14px;width:100%;background:rgba(15,23,42,.2)">
         ${s===1?'纯 TAP 阶段还没有视觉支架':'AI 阶段还没有鱼骨图，论证仍以文本形式呈现'}
@@ -1205,36 +1130,29 @@ const METRICS = {
   render();
 })();
 
-/* ============ 术语内联高亮 + 弹出卡 ============ */
+/* ============ 术语弹窗 ============ */
 (function(){
   const card = document.getElementById('termCard');
   const tcTitle = document.getElementById('tcTitle');
   const tcCat = document.getElementById('tcCat');
   const tcGeneral = document.getElementById('tcGeneral');
-  const tcHere = document.getElementById('tcHere');
+  const tcHereRow = document.getElementById('tcHereRow');
   const tcClose = document.getElementById('termClose');
   let activeTerm = null;
 
-  function showCard(key, el){
-    const d = TERMS[key];
-    if(!d) return;
-    tcTitle.textContent = d.t;
-    tcCat.textContent = d.c;
-    tcGeneral.textContent = d.g;
-    tcHere.textContent = d.h;
-    card.classList.add('show');
+  function positionCard(el){
     const r = el.getBoundingClientRect();
     let left = r.left;
     let top = r.bottom + 8;
     if(left + 400 > window.innerWidth) left = window.innerWidth - 410;
     if(left < 8) left = 8;
-    if(top + 260 > window.innerHeight) top = r.top - 270;
+    if(top + 280 > window.innerHeight) top = r.top - 290;
     if(top < 8) top = 8;
     card.style.left = left + 'px';
     card.style.top = top + 'px';
-    activeTerm = el;
   }
 
+  // 普通术语
   document.querySelectorAll('.term').forEach(el => {
     el.addEventListener('click', e => {
       e.stopPropagation();
@@ -1242,26 +1160,21 @@ const METRICS = {
       if(activeTerm === el && card.classList.contains('show')){
         card.classList.remove('show');
         activeTerm = null;
-      }else{
-        showCard(key, el);
+        return;
       }
+      const d = TERMS[key];
+      if(!d) return;
+      tcTitle.textContent = d.t;
+      tcCat.textContent = d.c;
+      tcGeneral.textContent = d.g;
+      tcHereRow.innerHTML = '<b>本论文中：</b>' + d.h;
+      card.classList.add('show');
+      positionCard(el);
+      activeTerm = el;
     });
   });
 
-  tcClose.addEventListener('click', () => {
-    card.classList.remove('show');
-    activeTerm = null;
-  });
-  document.addEventListener('click', e => {
-    if(!card.contains(e.target) && !e.target.classList.contains('term')){
-      card.classList.remove('show');
-      activeTerm = null;
-    }
-  });
-})();
-
-/* ============ 鱼骨图图例：悬停高亮 + 点击弹示例 ============ */
-(function(){
+  // 鱼骨图图例
   const FISH_DATA = {
     claim:{
       t:'主张 Claim', g:'一个被提出以供讨论或支持的观点。', cat:'鱼骨图',
@@ -1317,21 +1230,34 @@ const METRICS = {
         el.style.filter = '';
       });
     });
-    item.addEventListener('click', () => {
+    item.addEventListener('click', e => {
+      e.stopPropagation();
       const d = FISH_DATA[key];
-      const card = document.getElementById('termCard');
-      document.getElementById('tcTitle').textContent = d.t;
-      document.getElementById('tcCat').textContent = d.cat;
-      document.getElementById('tcGeneral').textContent = d.g;
-      const here = document.getElementById('tcHere');
-      here.innerHTML = `<b>${d.h}</b><br>` + d.levels.map(x =>
-        `<span style="display:inline-block;min-width:58px;color:#b45309;font-weight:700">${x.l}</span> ${x.ex}`
-      ).join('<br>');
+      if(!d) return;
+      tcTitle.textContent = d.t;
+      tcCat.textContent = d.cat;
+      tcGeneral.textContent = d.g;
+      tcHereRow.innerHTML =
+        '<b>本论文中：</b>' + d.h +
+        d.levels.map(x =>
+          `<div class="lvl-row"><span class="lvl-tag">${x.l}</span><span>${x.ex}</span></div>`
+        ).join('');
       card.classList.add('show');
-      const r = item.getBoundingClientRect();
-      card.style.left = Math.min(r.left, window.innerWidth - 410) + 'px';
-      card.style.top = (r.bottom + 8) + 'px';
+      positionCard(item);
+      activeTerm = item;
     });
+  });
+
+  tcClose.addEventListener('click', e => {
+    e.stopPropagation();
+    card.classList.remove('show');
+    activeTerm = null;
+  });
+  document.addEventListener('click', e => {
+    if(!card.contains(e.target) && !e.target.classList.contains('term') && !e.target.closest('.fl-item')){
+      card.classList.remove('show');
+      activeTerm = null;
+    }
   });
 })();
 
