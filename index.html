@@ -1100,4 +1100,223 @@ const METRICS = {
     s += `<line x1="${xm}" y1="${pad.t-6}" x2="${xm}" y2="${H-pad.b}" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 5"/>`;
     s += `<text x="${xm+8}" y="${pad.t-10}" fill="#b45309" font-size="12" font-weight="600">GAI 撤除点</text>`;
 
-    Obje
+    Object.keys(m.series).forEach(g => {
+      if(hidden[g]) return;
+      const vals = m.series[g];
+      const pts = vals.map((v,i) => X(i) + ',' + Y(v)).join(' ');
+      s += `<polyline points="${pts}" fill="none" stroke="${COLORS[g]}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>`;
+      vals.forEach((v,i) => {
+        const isT4 = i === 3;
+        const r = isT4 && highlightT4 ? 6.5 : 4.5;
+        s += `<circle cx="${X(i)}" cy="${Y(v)}" r="${r}" fill="#fff" stroke="${COLORS[g]}" stroke-width="2.6"/>`;
+      });
+    });
+
+    chartBox.innerHTML = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
+  }
+
+  function renderBar(m){
+    const max = m.yMax;
+    let html = '<div class="bar-chart">';
+    m.data.forEach(d => {
+      const hp = (d.post / max * 100).toFixed(1);
+      const hd = (d.delay / max * 100).toFixed(1);
+      html += `<div class="bar-group">
+        <div class="bars">
+          <div class="bar post" style="height:${hp}%"><span class="val">${d.post}</span></div>
+          <div class="bar delay" style="height:${hd}%"><span class="val">${d.delay}</span></div>
+        </div>
+        <div class="glabel" style="color:${COLORS[d.g]}">${d.g}</div>
+      </div>`;
+    });
+    html += '</div>';
+    html += `<div class="bar-legend">
+      <span><i style="background:#4f46e5"></i>后测</span>
+      <span><i style="background:#a5b4fc"></i>延迟后测（3 周后）</span>
+    </div>`;
+    chartBox.innerHTML = html;
+  }
+
+  function render(){
+    const m = METRICS[cur];
+    noteBox.textContent = m.note;
+    if(m.type === 'bar'){ legendBox.innerHTML = ''; renderBar(m); }
+    else{ renderLegend(Object.keys(m.series)); renderLine(m); }
+  }
+  render();
+})();
+
+/* =========================================================
+   3. 术语内联高亮 + 弹出卡
+   ========================================================= */
+(function(){
+  const card = document.getElementById('termCard');
+  const tcTitle = document.getElementById('tcTitle');
+  const tcCat = document.getElementById('tcCat');
+  const tcGeneral = document.getElementById('tcGeneral');
+  const tcHere = document.getElementById('tcHere');
+  const tcClose = document.getElementById('termClose');
+  let activeTerm = null;
+
+  function showCard(key, el){
+    const d = TERMS[key];
+    if(!d) return;
+    tcTitle.textContent = d.t;
+    tcCat.textContent = d.c;
+    tcGeneral.textContent = d.g;
+    tcHere.textContent = d.h;
+    card.classList.add('show');
+    const r = el.getBoundingClientRect();
+    let left = r.left;
+    let top = r.bottom + 8;
+    if(left + 400 > window.innerWidth) left = window.innerWidth - 410;
+    if(left < 8) left = 8;
+    if(top + 260 > window.innerHeight) top = r.top - 270;
+    if(top < 8) top = 8;
+    card.style.left = left + 'px';
+    card.style.top = top + 'px';
+    activeTerm = el;
+  }
+
+  document.querySelectorAll('.term').forEach(el => {
+    el.addEventListener('click', e => {
+      e.stopPropagation();
+      const key = el.dataset.key;
+      if(activeTerm === el && card.classList.contains('show')){
+        card.classList.remove('show');
+        activeTerm = null;
+      }else{
+        showCard(key, el);
+      }
+    });
+  });
+
+  tcClose.addEventListener('click', () => {
+    card.classList.remove('show');
+    activeTerm = null;
+  });
+  document.addEventListener('click', e => {
+    if(!card.contains(e.target) && !e.target.classList.contains('term')){
+      card.classList.remove('show');
+      activeTerm = null;
+    }
+  });
+})();
+
+/* =========================================================
+   4. 鱼骨图图例点击：带 Level 0/1/2 示例
+   ========================================================= */
+(function(){
+  const FISH_DATA = {
+    claim:{
+      t:'主张 Claim', g:'一个被提出以供讨论或支持的观点。', cat:'鱼骨图',
+      h:'鱼头位置。',
+      levels:[
+        {l:'Level 0',ex:'I believe in you.'},
+        {l:'Level 1',ex:'I think the apple got mushy.'},
+        {l:'Level 2',ex:'I think the apple turned brown because of oxidation. I saw it became brown.'}
+      ]
+    },
+    warrant:{
+      t:'理由/佐证 Warrant', g:'连接证据与主张的底层原理或推理。合并了原来的 Data、Warrant、Backing。', cat:'鱼骨图',
+      h:'上骨位置。',
+      levels:[
+        {l:'Level 0',ex:'Because I have seen it.'},
+        {l:'Level 1',ex:'It’s because when it touches the air, it becomes sour.'},
+        {l:'Level 2',ex:'On Day 1, the apple was white and crispy. By Day 10, it turned brown. That’s a sign of rotting, which means bacteria are there.'}
+      ]
+    },
+    rebuttal:{
+      t:'反驳 Rebuttal', g:'用来挑战对立主张、推理或观点的反论证。', cat:'鱼骨图',
+      h:'下骨位置。',
+      levels:[
+        {l:'Level 0',ex:'I don’t believe him; he is wrong.'},
+        {l:'Level 1',ex:'But the container was sealed, so microbes couldn’t get in.'},
+        {l:'Level 2',ex:'Not just oxidation – by Day 10 the apple shrank, so I think microbes got in too.'}
+      ]
+    },
+    qualifier:{
+      t:'限定 Qualifier', g:'限制主张适用范围或表示确定程度的词句。', cat:'鱼骨图',
+      h:'鱼尾位置。',
+      levels:[
+        {l:'Level 0',ex:'Maybe.'},
+        {l:'Level 1',ex:'Overall, the apple likely changed due to both oxidation and microbes.'},
+        {l:'Level 2',ex:'Maybe both happened. At first, oxidation made it brown, and later, bacteria or mold made it rot and bubble.'}
+      ]
+    }
+  };
+
+  document.querySelectorAll('.fl-item').forEach(item => {
+    const key = item.dataset.fish;
+    // 悬停高亮 SVG
+    item.addEventListener('mouseenter', () => {
+      const svg = document.getElementById('fishboneSVG');
+      svg.classList.add('highlight');
+      svg.querySelectorAll('.fb-'+key).forEach(el => {
+        el.style.filter = 'drop-shadow(0 0 6px rgba(79,70,229,.7))';
+      });
+    });
+    item.addEventListener('mouseleave', () => {
+      const svg = document.getElementById('fishboneSVG');
+      svg.classList.remove('highlight');
+      svg.querySelectorAll('[class^="fb-"]').forEach(el => {
+        el.style.filter = '';
+      });
+    });
+    // 点击弹出卡片
+    item.addEventListener('click', () => {
+      const d = FISH_DATA[key];
+      const card = document.getElementById('termCard');
+      document.getElementById('tcTitle').textContent = d.t;
+      document.getElementById('tcCat').textContent = d.cat;
+      document.getElementById('tcGeneral').textContent = d.g;
+      const here = document.getElementById('tcHere');
+      here.innerHTML = `<b>${d.h}</b><br>` + d.levels.map(x =>
+        `<span style="display:inline-block;min-width:52px;color:#b45309;font-weight:700">${x.l}</span> ${x.ex}`
+      ).join('<br>');
+      card.classList.add('show');
+      const r = item.getBoundingClientRect();
+      card.style.left = Math.min(r.left, window.innerWidth - 410) + 'px';
+      card.style.top = (r.bottom + 8) + 'px';
+    });
+  });
+})();
+
+/* =========================================================
+   5. 返回顶部按钮
+   ========================================================= */
+(function(){
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 500);
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+
+/* =========================================================
+   6. 滚动淡入
+   ========================================================= */
+(function(){
+  const els = document.querySelectorAll('.reveal, .ov-card, .theory-block, .card, .pc-item, .tl-step');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.08});
+  els.forEach(el => {
+    if(!el.classList.contains('reveal')) el.classList.add('reveal');
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
