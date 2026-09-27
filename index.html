@@ -25,7 +25,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* ===== 导航 ===== */
 .nav{
   position:sticky;top:0;z-index:100;
-  background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.9);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
 }
 .nav-inner{
@@ -40,14 +40,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .nav-inner a:hover{background:var(--soft);color:var(--primary)}
 
 /* ===== 通用 ===== */
-.section{max-width:1080px;margin:0 auto;padding:64px 16px}
-.section-head{margin-bottom:28px}
+.section{max-width:1080px;margin:0 auto;padding:60px 16px}
+.section-head{margin-bottom:26px}
 .section-head .kicker{
   font-size:13px;font-weight:700;letter-spacing:.12em;
   color:var(--primary);text-transform:uppercase;
 }
-.section-head h2{font-size:27px;line-height:1.35;margin:6px 0 8px;letter-spacing:-.01em}
-.section-head p{color:var(--muted);font-size:15px;max-width:760px}
+.section-head h2{font-size:26px;line-height:1.35;margin:6px 0 8px;letter-spacing:-.01em}
+.section-head p{color:var(--muted);font-size:15px;max-width:780px}
 .card{
   background:var(--card);border:1px solid var(--line);
   border-radius:16px;padding:20px;
@@ -67,7 +67,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* ===== Hero ===== */
 .hero{
   background:linear-gradient(140deg,#1e1b4b 0%,#312e81 45%,#4338ca 100%);
-  color:#fff;padding:76px 16px 68px;
+  color:#fff;padding:70px 16px 60px;
 }
 .hero-inner{max-width:1080px;margin:0 auto}
 .hero .tag{
@@ -75,110 +75,125 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
   padding:5px 13px;border-radius:999px;margin-bottom:18px;
 }
-.hero h1{font-size:clamp(26px,4.6vw,42px);line-height:1.28;letter-spacing:-.02em;font-weight:800}
+.hero h1{font-size:clamp(25px,4.4vw,40px);line-height:1.3;letter-spacing:-.02em;font-weight:800}
 .hero h1 em{font-style:normal;color:#fcd34d}
-.hero .sub{margin-top:14px;font-size:16px;color:#c7d2fe;max-width:640px}
-.hero .meta{margin-top:18px;font-size:13px;color:#a5b4fc}
+.hero .sub{margin-top:14px;font-size:15.5px;color:#c7d2fe;max-width:680px}
+.hero .meta{margin-top:16px;font-size:13px;color:#a5b4fc}
 
-.demo{
-  margin-top:32px;background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:20px;
-  backdrop-filter:blur(6px);
+/* 三阶段切换 */
+.stage-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.stab{
+  font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:10px;
+  border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);
+  color:#e0e7ff;transition:.2s;
 }
-.demo-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;margin-bottom:16px}
-.demo-head .state{font-size:14px;color:#e0e7ff}
-.demo-head .state b{color:#fcd34d}
-.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:680px){.demo-grid{grid-template-columns:1fr}}
-.demo-card{
-  background:rgba(15,23,42,.35);border:1px solid rgba(255,255,255,.12);
-  border-radius:12px;padding:15px;transition:.35s;
+.stab:hover{background:rgba(255,255,255,.16)}
+.stab.active{background:#fff;color:var(--primary);border-color:#fff}
+.stage-body{margin-top:22px;display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+@media(max-width:900px){.stage-body{grid-template-columns:1fr}}
+.stage-left{display:flex;flex-direction:column;gap:10px}
+.stage-right{display:flex;align-items:center;justify-content:center}
+
+/* TAP 要素卡片 */
+.tap-card{
+  background:rgba(15,23,42,.35);border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;padding:14px 16px;transition:.3s;
 }
-.demo-card h4{font-size:13px;color:#a5b4fc;font-weight:600;margin-bottom:8px}
-.demo-card p{font-size:14px;color:#e2e8f0;line-height:1.7}
-.demo-card.dim{opacity:.32;filter:grayscale(.6)}
-.demo-card.hl{border-color:rgba(252,211,77,.6);background:rgba(252,211,77,.1)}
+.tap-card .tch{
+  font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  color:#a5b4fc;margin-bottom:6px;display:flex;align-items:center;gap:6px;
+}
+.tap-card .tch .dot{width:7px;height:7px;border-radius:50%;background:#a5b4fc}
+.tap-card .tcb{font-size:14px;color:#e2e8f0;line-height:1.7}
+.tap-card .tce{
+  font-size:12.5px;color:#94a3b8;margin-top:8px;
+  padding-top:8px;border-top:1px dashed rgba(255,255,255,.15);line-height:1.65;
+}
+.tap-card.good{border-color:rgba(16,185,129,.45);background:rgba(16,185,129,.08)}
+.tap-card.good .tch{color:#6ee7b7}
+.tap-card.bad{border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.07)}
+.tap-card.bad .tch{color:#fca5a5}
+.stage-note{
+  margin-top:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:12px;padding:14px 16px;font-size:14px;color:#e0e7ff;line-height:1.7;
+}
+.stage-note b{color:#fcd34d}
+
+/* 鱼骨图 SVG */
+.fish-svg{width:100%;max-width:460px;height:auto}
 
 /* ===== 速览卡 ===== */
 .overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 .ov-card{
   background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;
-  transition:.25s;cursor:default;
+  transition:.25s;
 }
 .ov-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px -12px rgba(79,70,229,.28);border-color:#c7d2fe}
 .ov-card .ico{font-size:22px;margin-bottom:8px}
 .ov-card h3{font-size:15.5px;margin-bottom:6px}
 .ov-card p{font-size:13.5px;color:var(--muted);line-height:1.65}
 
-/* ===== 理论工具箱 ===== */
-.tap-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:820px){.tap-wrap{grid-template-columns:1fr}}
-.tap-six,.tap-four{display:flex;flex-wrap:wrap;gap:8px}
-.chip{
-  font-size:13.5px;padding:7px 13px;border-radius:9px;
-  background:#f1f5f9;border:1px solid #e2e8f0;color:#475569;transition:.3s;
+/* ===== 理论与方法 ===== */
+.theory-block{margin-bottom:28px}
+.theory-block h3{font-size:17px;margin-bottom:8px}
+.theory-block p{font-size:14.5px;color:#334155;line-height:1.75;margin-bottom:8px}
+.theory-block .note{
+  font-size:13.5px;color:#475569;background:#f8fafc;border-left:3px solid var(--primary);
+  padding:11px 14px;border-radius:0 10px 10px 0;margin-top:8px;
 }
-.chip.merge{background:#fef3c7;border-color:#fcd34d;color:#92400e}
-.chip.merged{background:var(--soft);border-color:#c7d2fe;color:var(--primary);font-weight:600}
-.chip.dropped{opacity:.35;text-decoration:line-through}
+.fish-demo{
+  display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-top:10px;
+}
+.fish-demo svg{flex:1;min-width:300px;max-width:520px}
+.fish-legend{flex:1;min-width:220px}
+.fish-legend .fl-item{
+  display:flex;gap:8px;align-items:flex-start;font-size:13.5px;
+  padding:8px 0;border-bottom:1px dashed var(--line);cursor:pointer;
+}
+.fish-legend .fl-item:last-child{border-bottom:none}
+.fish-legend .fl-dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0}
+.fish-legend .fl-item b{display:block;font-size:14px}
+.fish-legend .fl-item span{color:var(--muted);font-size:12.5px}
 
-/* 鱼骨图 */
-.fishbone-wrap{
-  display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap;
+/* ===== 论文框架 ===== */
+.fig1{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;
+  overflow-x:auto;
 }
-.fish-slot{
-  flex:1;min-width:130px;min-height:96px;border-radius:14px;
-  border:2px dashed #cbd5e1;background:#f8fafc;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:4px;padding:12px;text-align:center;transition:.22s;cursor:pointer;
+.fig1-flow{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  min-width:560px;padding:8px 0;
 }
-.fish-slot .pos{font-size:11.5px;color:#94a3b8;letter-spacing:.06em}
-.fish-slot .hint{font-size:12.5px;color:#94a3b8}
-.fish-slot:hover{border-color:#a5b4fc;background:var(--soft)}
-.fish-slot.correct{border-style:solid;border-color:var(--green);background:#ecfdf5}
-.fish-slot.correct .pos{color:var(--green)}
-.fish-slot.wrong{border-color:var(--red);background:#fef2f2;animation:shake .32s}
-.fish-slot .filled{font-size:14px;font-weight:700;color:#065f46}
-.fish-slot .ex{font-size:11.5px;color:#047857;line-height:1.5;margin-top:2px}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-.tag-pool{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.arg-tag{
-  font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:10px;
-  background:#fff;border:1.5px solid #cbd5e1;color:#334155;transition:.2s;
+.fig1-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.fig1-node{
+  background:#f8fafc;border:1.5px solid #cbd5e1;border-radius:10px;
+  padding:8px 14px;font-size:13px;font-weight:600;color:#334155;text-align:center;
 }
-.arg-tag:hover{border-color:var(--primary);color:var(--primary);background:var(--soft)}
-.arg-tag.selected{background:var(--primary);border-color:var(--primary);color:#fff;transform:scale(1.04)}
-.arg-tag.done{opacity:.35;pointer-events:none}
-.fb-msg{margin-top:14px;font-size:13.5px;color:var(--muted);min-height:22px}
+.fig1-node.hl{background:var(--soft);border-color:#c7d2fe;color:var(--primary)}
+.fig1-node.dark{background:#1e1b4b;border-color:#1e1b4b;color:#fff}
+.fig1-node.small{font-size:12px;padding:6px 10px;font-weight:500}
+.fig1-arrow{font-size:18px;color:#94a3b8;line-height:1}
+.fig1-label{font-size:12px;color:#94a3b8;margin-top:2px}
+.fig1-caption{font-size:12.5px;color:var(--muted);text-align:center;margin-top:12px}
 
 /* ===== 实验设计 ===== */
-.group-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.gtab{
-  font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:10px;
-  border:1.5px solid var(--line);background:#fff;color:#475569;transition:.2s;
+.design-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+.design-table th,.design-table td{
+  border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;
 }
-.gtab:hover{border-color:#c7d2fe}
-.gtab.active{color:#fff;border-color:transparent}
-.gtab[data-g="E1"].active{background:var(--e1)}
-.gtab[data-g="E2"].active{background:var(--e2)}
-.gtab[data-g="E3"].active{background:var(--e3)}
-.gtab[data-g="C"].active{background:var(--c)}
-.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-@media(max-width:680px){.timeline{grid-template-columns:repeat(3,1fr)}}
-.tp{
-  border-radius:12px;padding:12px 10px;text-align:center;
-  border:1px solid var(--line);background:#fff;font-size:12.5px;transition:.25s;
+.design-table th{background:#f8fafc;font-weight:700;color:#334155;font-size:13px}
+.design-table td{color:#475569}
+.design-table .tag{
+  display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:6px;margin:1px;
 }
-.tp .tn{font-size:11px;color:#94a3b8;letter-spacing:.06em}
-.tp .tt{font-weight:700;font-size:13px;margin:4px 0 6px}
-.tp .st{font-size:11.5px;line-height:1.5}
-.tp.gai{background:#eef2ff;border-color:#c7d2fe}
-.tp.gai .st{color:#4338ca}
-.tp.nogai{background:#fff7ed;border-color:#fed7aa}
-.tp.nogai .st{color:#c2410c}
-.tp.ctrl{background:#f8fafc}
-.tp.ctrl .st{color:#64748b}
-.tp.fade{opacity:.3}
+.tag-gai{background:#eef2ff;color:#4338ca}
+.tag-nogai{background:#fff7ed;color:#c2410c}
+.tag-ctrl{background:#f1f5f9;color:#64748b}
+.dual-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+.dual-table th,.dual-table td{border:1px solid var(--line);padding:10px 13px;vertical-align:top}
+.dual-table th{background:#fef2f2;color:#991b1b;font-weight:700;font-size:13px}
+.dual-table td{color:#475569}
+.dual-table td:last-child{background:#f8fafc}
 
 /* ===== 结果 ===== */
 .metric-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
@@ -195,14 +210,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .chart-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 8px 4px}
 .chart-box svg{width:100%;height:auto;display:block}
 .metric-note{font-size:13px;color:var(--muted);margin-top:12px;padding:12px 15px;background:#f8fafc;border-radius:10px;border-left:3px solid var(--primary)}
-
-/* SKT 柱状图 */
 .bar-chart{display:flex;justify-content:space-around;align-items:flex-end;gap:10px;height:300px;padding:16px 8px 0}
 .bar-group{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
 .bars{display:flex;gap:6px;align-items:flex-end;height:100%;width:100%;justify-content:center}
-.bar{
-  width:26px;border-radius:6px 6px 0 0;position:relative;transition:.6s cubic-bezier(.2,.8,.3,1);
-}
+.bar{width:26px;border-radius:6px 6px 0 0;position:relative;transition:.6s cubic-bezier(.2,.8,.3,1)}
 .bar.post{background:linear-gradient(180deg,#818cf8,#4f46e5)}
 .bar.delay{background:linear-gradient(180deg,#c7d2fe,#a5b4fc)}
 .bar .val{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-size:11.5px;font-weight:700;color:#475569}
@@ -210,49 +221,57 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .bar-legend{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:12.5px;color:var(--muted)}
 .bar-legend i{width:12px;height:12px;border-radius:3px;display:inline-block;margin-right:5px;vertical-align:-1px}
 
-/* ===== 术语 ===== */
-.search{
-  width:100%;padding:11px 16px;border-radius:11px;border:1px solid var(--line);
-  font-size:14.5px;font-family:inherit;outline:none;transition:.2s;background:#fff;
+/* ===== 优缺点 ===== */
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.proscons{grid-template-columns:1fr}}
+.pc-col h3{font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.pc-col h3 .badge{font-size:11px;font-weight:700;padding:2px 9px;border-radius:6px}
+.pc-col.pros h3 .badge{background:#ecfdf5;color:#047857}
+.pc-col.cons h3 .badge{background:#fef2f2;color:#b91c1c}
+.pc-item{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:13px 15px;margin-bottom:9px;font-size:13.5px;line-height:1.68;color:#475569;
 }
-.search:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.12)}
-.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:16px}
-.gloss{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;transition:.2s}
-.gloss:hover{border-color:#c7d2fe;box-shadow:0 8px 20px -14px rgba(79,70,229,.4)}
-.gloss h4{font-size:15px;margin-bottom:4px}
-.gloss .cat{
-  display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;
-  background:var(--soft);color:var(--primary);margin-bottom:8px;
-}
-.gloss .row{font-size:13.2px;line-height:1.68;margin-top:7px}
-.gloss .row b{color:#334155}
-.gloss .row.here b{color:#b45309}
-.gloss .row.here{background:#fffbeb;border-radius:8px;padding:8px 10px;margin-top:9px}
+.pc-item b{color:#334155}
 
-/* ===== 自测 ===== */
-.quiz-q{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:14px}
-.quiz-q .qh{font-size:15px;font-weight:700;margin-bottom:12px}
-.quiz-q .qh span{color:var(--primary);margin-right:6px}
-.opt{
-  display:block;width:100%;text-align:left;font-size:14px;padding:10px 14px;
-  border-radius:10px;border:1px solid var(--line);background:#fff;
-  margin-bottom:8px;transition:.18s;color:#334155;
+/* ===== 术语高亮 ===== */
+.term{
+  text-decoration:underline;
+  text-decoration-color:var(--primary);
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+  cursor:pointer;
+  color:#3730a3;
+  font-weight:600;
+  transition:.15s;
 }
-.opt:hover{border-color:#c7d2fe;background:var(--soft)}
-.opt.correct{background:#ecfdf5;border-color:var(--green);color:#065f46;font-weight:600}
-.opt.wrong{background:#fef2f2;border-color:var(--red);color:#991b1b}
-.opt:disabled{cursor:default}
-.explain{
-  font-size:13.5px;color:#475569;background:#f8fafc;border-left:3px solid var(--primary);
-  padding:11px 14px;border-radius:0 10px 10px 0;margin-top:6px;display:none;
+.term:hover{background:var(--soft);border-radius:3px}
+
+/* 术语弹出卡 */
+.term-card{
+  position:fixed;z-index:300;max-width:360px;
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 20px 50px -20px rgba(15,23,42,.45);
+  padding:16px 18px;display:none;font-size:13.5px;line-height:1.7;
 }
-.explain.show{display:block}
-.score-box{
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;
-  border-radius:16px;padding:22px;text-align:center;margin-bottom:18px;
+.term-card.show{display:block}
+.term-card .tc-head{
+  display:flex;align-items:center;gap:8px;margin-bottom:8px;
 }
-.score-box .num{font-size:38px;font-weight:800;line-height:1}
-.score-box .lbl{font-size:13.5px;color:#c7d2fe;margin-top:6px}
+.term-card .tc-head h4{font-size:15px;color:var(--ink)}
+.term-card .tc-cat{
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;
+  background:var(--soft);color:var(--primary);
+}
+.term-card .tc-row{margin-top:7px;color:#475569}
+.term-card .tc-row b{color:#334155}
+.term-card .tc-row.here{background:#fffbeb;border-radius:8px;padding:8px 10px;margin-top:9px}
+.term-card .tc-row.here b{color:#b45309}
+.term-card .tc-close{
+  position:absolute;top:10px;right:12px;font-size:16px;color:#94a3b8;
+  line-height:1;padding:4px;
+}
+.term-card .tc-close:hover{color:var(--ink)}
 
 footer{
   text-align:center;padding:44px 16px;color:var(--muted);font-size:13px;
@@ -267,42 +286,37 @@ footer{
   <div class="nav-inner">
     <a href="#hero">首页</a>
     <a href="#overview">研究速览</a>
-    <a href="#theory">理论工具箱</a>
+    <a href="#theory">理论与方法</a>
+    <a href="#framework">论文框架</a>
     <a href="#design">实验设计</a>
-    <a href="#results">结果探索</a>
-    <a href="#glossary">术语词典</a>
-    <a href="#quiz">自测</a>
+    <a href="#results">结果与讨论</a>
+    <a href="#proscons">优点与缺点</a>
   </div>
 </nav>
 
-<!-- ============ 首页 ============ -->
+<!-- ============ 首页：三阶段案例 ============ -->
 <header class="hero" id="hero">
   <div class="hero-inner">
     <div class="tag">交互式论文解读 · 教育本科生友好版</div>
-    <h1>撤掉生成式 AI 之后，<br>学生<em>还能自己论证吗</em>？</h1>
+    <h1>同一个学生，三种支持，<br><em>论证质量差在哪？</em></h1>
     <p class="sub">
-      一项针对 211 名七年级学生的准实验研究，把 Toulmin 论证模式（TAP）和鱼骨图整合成视觉支架，
-      放进生成式 AI 支持的科学论证课堂，看它能否补上纯文本 AI 交互的短板。
+      以“转基因食品是否应该推广”为例，看一个中学生如何从纯 <span class="term" data-key="tap">TAP</span> 理论，
+      到加入 <span class="term" data-key="gai">GAI</span>，再到加入<span class="term" data-key="fishbone">鱼骨图</span>视觉支架，
+      一步步把情绪化表达变成有证据、有逻辑、有限定的科学论证。
     </p>
     <p class="meta">Lin, Jiao &amp; Hung (2026) · Enhancing scientific argumentation with visual scaffolding in generative AI-supported environments</p>
 
-    <!-- GAI 开关演示 -->
-    <div class="demo">
-      <div class="demo-head">
-        <span class="state">当前状态：<b id="gaiState">GAI 已开启</b></span>
-        <button class="btn small" id="gaiToggle">撤除 GAI</button>
-      </div>
-      <div class="demo-grid">
-        <div class="demo-card" id="aiCard">
-          <h4>🤖 AI 给出的论证</h4>
-          <p>苹果切开后变褐，是因为多酚氧化酶在氧气作用下催化多酚类物质氧化，生成褐色醌类聚合物。这是酶促褐变反应。</p>
-        </div>
-        <div class="demo-card" id="studentCard">
-          <h4>✍️ 学生自己构建的论证</h4>
-          <p id="studentText">（学生直接采用 AI 的答案，几乎没有自己的推理过程。）</p>
-        </div>
-      </div>
+    <div class="stage-tabs" id="stageTabs">
+      <button class="stab active" data-s="1">阶段1 · 纯 TAP</button>
+      <button class="stab" data-s="2">阶段2 · TAP + AI</button>
+      <button class="stab" data-s="3">阶段3 · TAP + AI + 鱼骨图</button>
     </div>
+
+    <div class="stage-body">
+      <div class="stage-left" id="stageLeft"></div>
+      <div class="stage-right" id="stageRight"></div>
+    </div>
+    <div class="stage-note" id="stageNote"></div>
   </div>
 </header>
 
@@ -311,90 +325,175 @@ footer{
   <div class="section-head">
     <div class="kicker">Overview</div>
     <h2>研究速览：5 张卡片看懂全文</h2>
-    <p>论文想解决的问题是：GAI 好用，但学生容易依赖；视觉支架能不能补上这一块？</p>
+    <p>论文想解决的问题是：<span class="term" data-key="gai">GAI</span> 好用，但学生容易依赖；<span class="term" data-key="visual">视觉支架</span>能不能补上这一块？</p>
   </div>
   <div class="overview">
     <div class="ov-card"><div class="ico">🎯</div><h3>背景</h3><p>生成式 AI 在科学教育中广泛应用，但实证多来自成人；学生可能过度依赖 AI 生成的答案。</p></div>
     <div class="ov-card"><div class="ico">❓</div><h3>问题</h3><p>科学论证本身很难：分不清主张与证据、难以基于证据反驳、缺少条件限定表达。GAI 撤除后可能进一步下滑。</p></div>
-    <div class="ov-card"><div class="ico">🧩</div><h3>方法</h3><p>211 名七年级学生，四组准实验，六个主题，前后测 + 三周后延迟测，FLAP 在线论证平台。</p></div>
+    <div class="ov-card"><div class="ico">🧩</div><h3>方法</h3><p>211 名七年级学生，四组<span class="term" data-key="quasi">准实验</span>，六个主题，前后测 + 三周后<span class="term" data-key="delay">延迟后测</span>。</p></div>
     <div class="ov-card"><div class="ico">🔍</div><h3>发现</h3><p>整合视觉支架组在动机、概念理解和论证质量上更稳；GAI 撤除后恢复更快，尤其体现在「理由」和「反驳」上。</p></div>
     <div class="ov-card"><div class="ico">💡</div><h3>启示</h3><p>视觉支架能补充文本型 GAI 交互，但不能完全消除依赖。教学应「以学习者为中心」设计支架。</p></div>
   </div>
 </section>
 
-<!-- ============ 理论工具箱 ============ -->
+<!-- ============ 理论与方法 ============ -->
 <section class="section" id="theory">
   <div class="section-head">
-    <div class="kicker">Theory Toolkit</div>
-    <h2>理论工具箱：TAP + 鱼骨图</h2>
-    <p>先看 TAP 怎么从六要素简化成四要素，再动手把四个要素放到鱼骨图上。</p>
+    <div class="kicker">Theory &amp; Method</div>
+    <h2>理论与方法：用了什么，怎么用的</h2>
+    <p>先看四个理论支柱，再看研究方法。鱼骨图是 TAP 的可视化落地，放在理论部分讲透。</p>
   </div>
 
-  <!-- TAP 六变四 -->
-  <div class="card" style="margin-bottom:18px">
-    <h3 style="font-size:16px;margin-bottom:6px">① TAP 六要素 → 四要素</h3>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:14px">
-      完整的 Toulmin 模式有六个成分，但中学生很难区分 data、warrant、backing。本研究把这三者合并到 <b>warrant</b> 之下。
-    </p>
-    <div class="tap-wrap">
-      <div>
-        <div style="font-size:12.5px;color:#94a3b8;margin-bottom:8px">原始六要素</div>
-        <div class="tap-six" id="tapSix">
-          <span class="chip">主张 Claim</span>
-          <span class="chip" id="cData">数据 Data</span>
-          <span class="chip" id="cWarrant">理由 Warrant</span>
-          <span class="chip" id="cBacking">支持 Backing</span>
-          <span class="chip">反驳 Rebuttal</span>
-          <span class="chip">限定 Qualifier</span>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:12.5px;color:#94a3b8;margin-bottom:8px">简化后四要素</div>
-        <div class="tap-four" id="tapFour">
-          <span class="chip merged">主张 Claim</span>
-          <span class="chip" id="rWarrant">理由 Warrant</span>
-          <span class="chip merged">反驳 Rebuttal</span>
-          <span class="chip merged">限定 Qualifier</span>
-        </div>
-      </div>
-    </div>
-    <button class="btn ghost small" style="margin-top:14px" id="mergeBtn">执行合并</button>
+  <!-- 1. 双编码 -->
+  <div class="theory-block">
+    <h3>① <span class="term" data-key="dual">双编码理论</span>：为什么需要视觉支架？</h3>
+    <p>双编码理论认为，语言和视觉两个通道同时加工信息时，学习效果更好。GAI 主要靠文本交互，学生如果只读文字，视觉通道是闲置的。</p>
+    <div class="note">本研究在 GAI 文本交互之外加入鱼骨图，形成“文本 + 视觉”的双通道支持，既帮助构建论证，也帮助在 GAI 撤除后维持表现。</div>
   </div>
 
-  <!-- 鱼骨图 -->
-  <div class="card">
-    <h3 style="font-size:16px;margin-bottom:6px">② 鱼骨图配对</h3>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:6px">
-      先点下面的标签，再点鱼骨图上的位置。配对正确会显示论文中的示例句。
-    </p>
+  <!-- 2. TAP -->
+  <div class="theory-block">
+    <h3>② <span class="term" data-key="tap">TAP</span>：六要素 → 四要素</h3>
+    <p>Toulmin 论证模式（TAP）认为，高质量论证包含六个成分：主张、数据、理由、支持、反驳、限定。但 TAP 结构抽象，中学生很难区分 data、warrant、backing。</p>
+    <p>本研究把 data、warrant、backing 三者合并到 <b>warrant</b> 之下，简化为四要素：<b>claim、warrant、rebuttal、qualifier</b>，降低<span class="term" data-key="load">认知负荷</span>。</p>
+    <div class="note">简化后的四要素，正是鱼骨图四个位置的依据：鱼头放 claim，上骨放 warrant，下骨放 rebuttal，鱼尾放 qualifier。</div>
+  </div>
 
-    <div class="fishbone-wrap">
-      <div class="fish-slot" data-key="qualifier">
-        <div class="pos">鱼尾</div>
-        <div class="hint">点击放置</div>
-      </div>
-      <div class="fish-slot" data-key="warrant">
-        <div class="pos">上骨</div>
-        <div class="hint">点击放置</div>
-      </div>
-      <div class="fish-slot" data-key="rebuttal">
-        <div class="pos">下骨</div>
-        <div class="hint">点击放置</div>
-      </div>
-      <div class="fish-slot" data-key="claim">
-        <div class="pos">鱼头</div>
-        <div class="hint">点击放置</div>
+  <!-- 3. 鱼骨图 -->
+  <div class="theory-block">
+    <h3>③ <span class="term" data-key="fishbone">鱼骨图</span>：TAP 的可视化落地</h3>
+    <p>鱼骨图由日本质量管理专家石川馨于 1960 年代提出，最初用于分析产品质量问题的原因。鱼头代表问题或结果，鱼骨代表原因。本研究把它从“因果分析工具”改造成“论证结构工具”。</p>
+    <div class="fish-demo">
+      <svg class="fish-svg" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- 鱼头 -->
+        <ellipse cx="410" cy="150" rx="78" ry="52" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+        <text x="410" y="142" text-anchor="middle" font-size="15" font-weight="700" fill="#4f46e5">主张</text>
+        <text x="410" y="162" text-anchor="middle" font-size="12" fill="#6366f1">Claim</text>
+        <!-- 鱼尾 -->
+        <polygon points="60,150 110,110 110,190" fill="#fff7ed" stroke="#f59e0b" stroke-width="2.5"/>
+        <text x="82" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#c2410c">限定</text>
+        <text x="82" y="162" text-anchor="middle" font-size="10" fill="#f59e0b">Qualifier</text>
+        <!-- 鱼身 -->
+        <line x1="110" y1="150" x2="332" y2="150" stroke="#334155" stroke-width="2.5"/>
+        <!-- 上骨 -->
+        <line x1="180" y1="150" x2="240" y2="70" stroke="#0ea5e9" stroke-width="2.2"/>
+        <line x1="260" y1="150" x2="320" y2="70" stroke="#0ea5e9" stroke-width="2.2"/>
+        <text x="210" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="#0284c7">理由 Warrant</text>
+        <text x="290" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="#0284c7">资料 Data</text>
+        <!-- 下骨 -->
+        <line x1="180" y1="150" x2="240" y2="230" stroke="#ef4444" stroke-width="2.2"/>
+        <line x1="260" y1="150" x2="320" y2="230" stroke="#ef4444" stroke-width="2.2"/>
+        <text x="210" y="248" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">反驳 Rebuttal</text>
+        <text x="290" y="248" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">反驳 Rebuttal</text>
+      </svg>
+      <div class="fish-legend">
+        <div class="fl-item" data-fish="claim">
+          <div class="fl-dot" style="background:#4f46e5"></div>
+          <div><b>鱼头 · 主张 Claim</b><span>帮助维持焦点，明确讨论的核心观点。</span></div>
+        </div>
+        <div class="fl-item" data-fish="warrant">
+          <div class="fl-dot" style="background:#0ea5e9"></div>
+          <div><b>上骨 · 理由 Warrant + 资料 Data</b><span>按来源和成分组织支持性证据与推理。</span></div>
+        </div>
+        <div class="fl-item" data-fish="rebuttal">
+          <div class="fl-dot" style="background:#ef4444"></div>
+          <div><b>下骨 · 反驳 Rebuttal</b><span>预判对立观点，深化论证质量。</span></div>
+        </div>
+        <div class="fl-item" data-fish="qualifier">
+          <div class="fl-dot" style="background:#f59e0b"></div>
+          <div><b>鱼尾 · 限定 Qualifier</b><span>反思主张成立的条件，明确适用范围。</span></div>
+        </div>
       </div>
     </div>
+    <div class="note">每个位置最多放 4 条论证，自动出现在讨论区，也可点击鱼骨图上的点查看。这样学生能“看到”论证的完整结构，而不只是读一段文字。</div>
+  </div>
 
-    <div class="tag-pool" id="tagPool">
-      <button class="arg-tag" data-key="claim">主张 Claim</button>
-      <button class="arg-tag" data-key="warrant">理由 Warrant</button>
-      <button class="arg-tag" data-key="rebuttal">反驳 Rebuttal</button>
-      <button class="arg-tag" data-key="qualifier">限定 Qualifier</button>
+  <!-- 4. 社会建构主义 -->
+  <div class="theory-block">
+    <h3>④ <span class="term" data-key="social">社会建构主义</span>：同伴互动</h3>
+    <p>知识通过人与人的社会互动建构。FLAP 平台采用小组合作（3-4 人异质分组）和讨论区互评，学生可查看同伴论证并追问。</p>
+    <div class="note">论文发现，反驳（rebuttal）更依赖同伴互动，而非 GAI。GAI 撤除后，E2 组的反驳没有显著下降，部分原因就是同伴讨论在起作用。</div>
+  </div>
+
+  <!-- 5. 研究方法 -->
+  <div class="theory-block">
+    <h3>⑤ 研究方法：准实验 + 混合设计</h3>
+    <p>研究采用<span class="term" data-key="quasi">准实验设计</span>，无法随机分配学生，使用现成班级。211 名七年级学生来自 8 个班，分为四组。</p>
+    <p>设计是<span class="term" data-key="mixed">混合设计</span>：视觉支架是<span class="term" data-key="between">组间因素</span>（整合 vs 最小），GAI 有无是<span class="term" data-key="within">组内因素</span>（前三主题 vs 后三主题）。</p>
+    <div class="note">
+      工具：<span class="term" data-key="skt">SKT</span>（24 题二段式科学概念诊断）、<span class="term" data-key="slmq">SLMQ</span>（学习动机问卷，满分 120）、FLAP 论证数据（四类成分编码，Level 0/1/2 评分）。<br>
+      统计：<span class="term" data-key="ancova">ANCOVA</span>、<span class="term" data-key="rm">重复测量 ANOVA</span>、<span class="term" data-key="kripp">Krippendorff's α</span>。
     </div>
-    <div class="fb-msg" id="fbMsg">👉 选中一个标签开始配对。</div>
-    <button class="btn ghost small" style="margin-top:12px" id="fbReset">重新配对</button>
+  </div>
+</section>
+
+<!-- ============ 论文框架 ============ -->
+<section class="section" id="framework">
+  <div class="section-head">
+    <div class="kicker">Structure</div>
+    <h2>论文框架：原文 Figure 1 解读</h2>
+    <p>原文 Figure 1 展示了完整的研究流程。下面按论文本身的章节结构，逐部分说明。</p>
+  </div>
+
+  <div class="fig1">
+    <div class="fig1-flow">
+      <div class="fig1-row">
+        <div class="fig1-node dark">前测 Pretests</div>
+        <div class="fig1-node dark">SKT</div>
+      </div>
+      <div class="fig1-arrow">↓</div>
+      <div class="fig1-row">
+        <div class="fig1-node hl">入门课程 Introductory Course</div>
+      </div>
+      <div class="fig1-arrow">↓</div>
+      <div class="fig1-row">
+        <div class="fig1-node">LLMS（如 ChatGPT）</div>
+        <div class="fig1-node">TAP 理论（所有实验组）</div>
+        <div class="fig1-node">鱼骨图（E1、E2）</div>
+      </div>
+      <div class="fig1-arrow">↓</div>
+      <div class="fig1-row">
+        <div class="fig1-node small">实验室实验</div>
+        <div class="fig1-node small">学校图书馆</div>
+        <div class="fig1-node small">互联网</div>
+        <div class="fig1-node small">访谈</div>
+      </div>
+      <div class="fig1-label">探究活动 Inquiry Activities</div>
+      <div class="fig1-arrow">↓</div>
+      <div class="fig1-row">
+        <div class="fig1-node hl">FLAP 在线学习</div>
+      </div>
+      <div class="fig1-arrow">↓</div>
+      <div class="fig1-row">
+        <div class="fig1-node small">视觉支架界面（E1、E2）</div>
+        <div class="fig1-node small">通用界面（E3）</div>
+      </div>
+      <div class="fig1-arrow">↓</div>
+      <div class="fig1-row">
+        <div class="fig1-node small">主题 1-3：视觉支架 + GAI</div>
+        <div class="fig1-node small">主题 4-6：视觉支架 / 最小支架</div>
+      </div>
+      <div class="fig1-arrow">↓</div>
+      <div class="fig1-row">
+        <div class="fig1-node dark">后测 Posttest &amp; 延迟后测 Delay tests</div>
+        <div class="fig1-node dark">SKT</div>
+      </div>
+    </div>
+    <div class="fig1-caption">原文 Figure 1 的研究流程示意图（简化重绘，便于网页阅读）</div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <table class="design-table">
+      <tr><th>论文部分</th><th>在做什么</th><th>关键内容</th></tr>
+      <tr><td>Abstract</td><td>摘要</td><td>研究背景、设计、主要发现</td></tr>
+      <tr><td>Introduction</td><td>引言</td><td>GAI 教育应用、科学论证挑战、研究假设</td></tr>
+      <tr><td>Literature Review</td><td>文献综述</td><td>科学论证教学、视觉支架、GAI 支架设计</td></tr>
+      <tr><td>Research Method</td><td>研究方法</td><td>参与者、设计、FLAP、工具、数据分析</td></tr>
+      <tr><td>Results</td><td>结果</td><td>SKT、SLMQ、四类论证、Level 2 频率</td></tr>
+      <tr><td>Discussion</td><td>讨论</td><td>GAI 撤除与恢复、依赖与四成分</td></tr>
+      <tr><td>Conclusion</td><td>结论</td><td>总结发现</td></tr>
+      <tr><td>Limitations</td><td>局限</td><td>主题混淆、支架不可比、系统限制</td></tr>
+    </table>
   </div>
 </section>
 
@@ -402,25 +501,93 @@ footer{
 <section class="section" id="design">
   <div class="section-head">
     <div class="kicker">Design</div>
-    <h2>实验设计：四组 × 六主题</h2>
-    <p>点击组别，看这一组在六个主题中分别接受了什么条件。橙色代表 GAI 已撤除。</p>
+    <h2>实验设计：做了什么、没做什么、为什么</h2>
+    <p>四组 × 六主题 × 约四个月。下面把“做了什么”和“没做什么 & 为什么没做”讲清楚。</p>
   </div>
-  <div class="group-tabs" id="groupTabs">
-    <button class="gtab active" data-g="E1">E1 · 全程整合支架 + GAI（n=53）</button>
-    <button class="gtab" data-g="E2">E2 · 整合支架，后 3 主题撤除 GAI（n=52）</button>
-    <button class="gtab" data-g="E3">E3 · 最小支架，后 3 主题撤除 GAI（n=52）</button>
-    <button class="gtab" data-g="C">C · 教师中心传统教学（n=54）</button>
+
+  <div class="theory-block">
+    <h3>① 做了什么：四组条件</h3>
+    <table class="design-table">
+      <tr>
+        <th>组别</th><th>前三主题</th><th>后三主题</th><th>人数</th><th>角色</th>
+      </tr>
+      <tr>
+        <td><b>E1</b></td>
+        <td><span class="tag tag-gai">整合视觉支架 + GAI</span></td>
+        <td><span class="tag tag-gai">整合视觉支架 + GAI</span></td>
+        <td>53</td>
+        <td>全程最高支持，上限基准</td>
+      </tr>
+      <tr>
+        <td><b>E2</b></td>
+        <td><span class="tag tag-gai">整合视觉支架 + GAI</span></td>
+        <td><span class="tag tag-nogai">仅整合视觉支架</span></td>
+        <td>52</td>
+        <td>关键组：检验视觉支架能否补偿 GAI 撤除</td>
+      </tr>
+      <tr>
+        <td><b>E3</b></td>
+        <td><span class="tag tag-gai">最小支架 + GAI</span></td>
+        <td><span class="tag tag-nogai">仅最小支架</span></td>
+        <td>52</td>
+        <td>低视觉支架对照</td>
+      </tr>
+      <tr>
+        <td><b>C</b></td>
+        <td><span class="tag tag-ctrl">教师中心传统教学</span></td>
+        <td><span class="tag tag-ctrl">教师中心传统教学</span></td>
+        <td>54</td>
+        <td>真实课堂参照基线</td>
+      </tr>
+    </table>
+    <div class="note">
+      六个主题：纸飞机（空气阻力）、鸡蛋浮沉（密度与浮力）、橘子成熟（植物激素）、苹果氧化（酶与氧化还原）、岩层（岩石类型与风化）、磁铁与黑色物质（磁性）。每个主题约 45-90 分钟探究 + 45 分钟 FLAP 在线论证。干预约四个月，平均每周 2 小时。
+    </div>
   </div>
-  <div class="timeline" id="timeline"></div>
-  <div class="metric-note" id="designNote"></div>
+
+  <div class="theory-block">
+    <h3>② 没做什么 &amp; 为什么没做</h3>
+    <table class="dual-table">
+      <tr><th>没做什么</th><th>为什么没做</th></tr>
+      <tr><td>没有随机分配学生</td><td>学校按异质分组编班，只能保持原班级，所以是准实验</td></tr>
+      <tr><td>没有统一 GAI 工具</td><td>学生偏好不同工具（ChatGPT、Copilot 等），强制统一反而降低生态效度</td></tr>
+      <tr><td>没有完全消除 E3 的视觉支持</td><td>FLAP 平台本身有基础视觉元素，无法完全剥离</td></tr>
+      <tr><td>没有打乱主题顺序</td><td>六个主题与学校跨学科课程进度绑定</td></tr>
+      <tr><td>没有控制主题难度顺序</td><td>GAI 撤除与主题切换绑定，主题特征成为潜在混淆因素</td></tr>
+      <tr><td>没有测量超过三周的长期保持</td><td>研究周期限制，三周延迟测已是可行范围</td></tr>
+      <tr><td>没有把动机作为中介变量分析</td><td>动机是结果变量，未检验它是否中介了论证表现</td></tr>
+      <tr><td>没有统一教师教学风格</td><td>两位教师教实验组，一位教控制组，教师效应可能干扰</td></tr>
+    </table>
+  </div>
+
+  <div class="theory-block">
+    <h3>③ 目的是什么：三个假设的检验逻辑</h3>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="card">
+        <h4 style="font-size:14.5px;margin-bottom:6px">H1</h4>
+        <p style="font-size:13.5px;color:#475569">整合视觉支架组在科学论证表现、科学概念理解、学习动机上优于最小支架组。</p>
+        <div class="note" style="margin-top:8px">靠后测和延迟测的组间比较检验。</div>
+      </div>
+      <div class="card">
+        <h4 style="font-size:14.5px;margin-bottom:6px">H2</h4>
+        <p style="font-size:13.5px;color:#475569">GAI 撤除后，整合视觉支架组与最小支架组的表现变化程度不同。</p>
+        <div class="note" style="margin-top:8px">靠主题 4 撤除 GAI 后的组间差异检验。</div>
+      </div>
+      <div class="card">
+        <h4 style="font-size:14.5px;margin-bottom:6px">H3</h4>
+        <p style="font-size:13.5px;color:#475569">GAI 撤除后继续提供整合视觉支架，会带来不同的恢复轨迹。</p>
+        <div class="note" style="margin-top:8px">靠主题 4-6 的恢复轨迹分析检验。</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ============ 结果探索 ============ -->
+<!-- ============ 结果与讨论 ============ -->
 <section class="section" id="results">
   <div class="section-head">
-    <div class="kicker">Results</div>
-    <h2>结果探索器</h2>
-    <p>切换指标，点击下方图例可以隐藏/显示某一组。虚线标记的是 E2、E3 组的 GAI 撤除点。</p>
+    <div class="kicker">Results &amp; Discussion</div>
+    <h2>结果与讨论</h2>
+    <p>切换指标查看四组在六个主题中的表现。虚线标记的是 E2、E3 组的 GAI 撤除点。</p>
   </div>
 
   <div class="metric-tabs" id="metricTabs"></div>
@@ -429,30 +596,41 @@ footer{
   <div class="metric-note" id="metricNote"></div>
 </section>
 
-<!-- ============ 术语词典 ============ -->
-<section class="section" id="glossary">
+<!-- ============ 优点与缺点 ============ -->
+<section class="section" id="proscons">
   <div class="section-head">
-    <div class="kicker">Glossary</div>
-    <h2>术语词典</h2>
-    <p>每个术语给两层解释：「一般解释」帮你建立概念，「本论文中」告诉你在研究里的具体含义。</p>
+    <div class="kicker">Evaluation</div>
+    <h2>优点与缺点</h2>
+    <p>从研究设计、理论整合、数据质量、推广性四个角度评价。</p>
   </div>
-  <input class="search" id="glossSearch" type="text" placeholder="搜索术语，例如：鱼骨图、ANCOVA、Warrant……">
-  <div class="gloss-grid" id="glossGrid"></div>
-</section>
 
-<!-- ============ 自测 ============ -->
-<section class="section" id="quiz">
-  <div class="section-head">
-    <div class="kicker">Self-Check</div>
-    <h2>自测：8 道题检验理解</h2>
-    <p>选完立即反馈，并给出论文依据。</p>
+  <div class="proscons">
+    <div class="pc-col pros">
+      <h3><span class="badge">优点</span></h3>
+      <div class="pc-item"><b>理论整合好</b>：把 TAP、鱼骨图、双编码理论、社会建构主义结合，不是单纯加 AI。</div>
+      <div class="pc-item"><b>设计完整</b>：四组比较，有控制组、上限基准（E1）和下限基准（C），能看不同支持组合。</div>
+      <div class="pc-item"><b>切中依赖问题</b>：不只研究“有 AI 时有没有用”，还研究“撤掉 AI 后是否还能维持”。</div>
+      <div class="pc-item"><b>多结果变量</b>：科学概念理解、学习动机、四类论证成分、Level 2 质量，较全面。</div>
+      <div class="pc-item"><b>有延迟后测</b>：三周后测，能看保持效果。</div>
+      <div class="pc-item"><b>编码信度高</b>：类别 α=.91，质量 α=.86，数据可信度较好。</div>
+      <div class="pc-item"><b>生态效度好</b>：真实班级、真实科学主题、跨学科课程、合作学习。</div>
+    </div>
+    <div class="pc-col cons">
+      <h3><span class="badge">缺点与局限</span></h3>
+      <div class="pc-item"><b>主题与 GAI 条件混淆</b>：GAI 有无按主题切换，主题本身难度、熟悉度可能影响结果。</div>
+      <div class="pc-item"><b>支架条件不完全可比</b>：E2 整合支架、E3 最小支架、C 教师中心，三者不是严格渐进对齐。</div>
+      <div class="pc-item"><b>鱼骨图依赖句子启动器</b>：不用启动器的有效论证不会被系统表征。</div>
+      <div class="pc-item"><b>非随机分配</b>：使用完整班级，教师效应、班级氛围可能干扰。</div>
+      <div class="pc-item"><b>样本局限</b>：台湾两所沿海中学七年级，211 人，推广需谨慎。</div>
+      <div class="pc-item"><b>GAI 工具不统一</b>：学生自由使用 ChatGPT、Copilot 等，反馈质量不同。</div>
+      <div class="pc-item"><b>依赖未完全解决</b>：即使有视觉支架，撤除 GAI 后多数组仍有下降。</div>
+      <div class="pc-item"><b>动机未作为中介分析</b>：动机是结果变量，未检验它是否中介了论证表现。</div>
+      <div class="pc-item"><b>延迟测仅三周</b>：长期保持效果仍不清楚。</div>
+      <div class="pc-item"><b>E3 仍有基础视觉支持</b>：所谓“最小支架”不是完全没有视觉支持。</div>
+      <div class="pc-item"><b>控制组教师中心</b>：比较的是“整体教学包”，而非单一支架。</div>
+      <div class="pc-item"><b>组件偏见</b>：GAI 对 claim、warrant 帮助大，对 qualifier 帮助有限。</div>
+    </div>
   </div>
-  <div class="score-box" id="scoreBox">
-    <div class="num"><span id="scoreNum">0</span> / 8</div>
-    <div class="lbl">当前得分</div>
-  </div>
-  <div id="quizList"></div>
-  <button class="btn ghost" id="quizReset">重新作答</button>
 </section>
 
 <footer>
@@ -460,207 +638,151 @@ footer{
   数据均来自原文表格，仅用于教学演示。
 </footer>
 
+<!-- 术语弹出卡 -->
+<div class="term-card" id="termCard">
+  <button class="tc-close" id="termClose">×</button>
+  <div class="tc-head"><h4 id="tcTitle"></h4><span class="tc-cat" id="tcCat"></span></div>
+  <div class="tc-row"><b>一般解释：</b><span id="tcGeneral"></span></div>
+  <div class="tc-row here"><b>本论文中：</b><span id="tcHere"></span></div>
+</div>
+
 <script>
 /* =========================================================
-   0. 通用数据
+   0. 术语词典
    ========================================================= */
-const THEMES = ['主题1','主题2','主题3','主题4','主题5','主题6'];
-const COLORS = {E1:'#4f46e5', E2:'#0ea5e9', E3:'#f59e0b', C:'#94a3b8'};
-const GROUP_NAME = {E1:'E1 整合支架+GAI', E2:'E2 整合支架（后撤GAI）', E3:'E3 最小支架（后撤GAI）', C:'C 控制组'};
+const TERMS = {
+  tap:{t:'TAP（Toulmin 论证模式）',c:'理论',g:'高质量论证包含主张、数据、理由、支持、反驳、限定六个要素。',h:'因中学生难区分 data、warrant、backing，本研究将其简化为四要素：claim、warrant、rebuttal、qualifier。'},
+  gai:{t:'生成式 AI（GAI）',c:'理论',g:'能根据提示自动生成文本、图像、代码等内容的 AI，如 ChatGPT、Copilot。',h:'学生可自由使用 ChatGPT、Copilot 等帮助科学论证；研究担心依赖，因此在后三个主题对 E2、E3 撤除 GAI。'},
+  fishbone:{t:'鱼骨图',c:'理论',g:'因果分析图，鱼头是问题或结果，鱼骨是原因，用于梳理复杂因果关系。',h:'鱼头放 claim，上骨放 warrant 和证据，下骨放 rebuttal，鱼尾放 qualifier，每个位置最多显示 4 条论证。'},
+  visual:{t:'视觉支架',c:'理论',g:'用图形、图像、结构图帮助学习者组织信息、降低认知难度的支持手段。',h:'指 TAP 模型 + 鱼骨图，嵌入 FLAP 平台，支持 claim、warrant、rebuttal、qualifier 四类论证成分。'},
+  dual:{t:'双编码理论',c:'理论',g:'语言和视觉两个通道同时加工信息时，学习效果更好。',h:'因为 GAI 主要靠文本交互，所以加入鱼骨图补足视觉通道，形成“文本 + 视觉”的互补。'},
+  social:{t:'社会建构主义',c:'理论',g:'知识通过人与人的社会互动建构，而非单向传递。',h:'FLAP 采用小组合作（3-4 人异质分组）和讨论区互评，学生可查看同伴论证并追问。'},
+  load:{t:'认知负荷',c:'理论',g:'工作记忆在处理信息时承受的负担。',h:'TAP 结构抽象、认知负荷高，因此用鱼骨图降低负荷，并把每个位置限制为 4 条论证。'},
+  quasi:{t:'准实验设计',c:'方法',g:'无法随机分组时，使用现成班级进行比较的研究设计。',h:'211 名七年级学生来自 8 个班，按原有班级分为 E1、E2、E3 和控制组四组。'},
+  mixed:{t:'混合设计',c:'方法',g:'同时包含组间比较和组内重复测量的设计。',h:'视觉支架是组间因素（整合 vs 最小），GAI 有无是组内因素（前三主题 vs 后三主题）。'},
+  between:{t:'组间因素',c:'方法',g:'不同组接受不同处理条件。',h:'E1、E2 接受整合视觉支架，E3 接受最小支架，控制组接受传统讲授。'},
+  within:{t:'组内因素',c:'方法',g:'同一组在不同时间接受不同条件。',h:'前三主题有 GAI，后三主题 E2、E3 撤除 GAI，比较撤除前后的表现变化。'},
+  delay:{t:'延迟后测',c:'方法',g:'干预结束一段时间后再测一次，检验学习保持效果。',h:'教学实验结束三周后进行 SKT 延迟后测，只有 E2 组无显著下降。'},
+  skt:{t:'SKT',c:'工具',g:'科学知识测试。',h:'24 题二段式诊断测试，覆盖六个主题的科学概念，只有全部选对才得满分，Cronbach’s α = .88。'},
+  slmq:{t:'SLMQ',c:'工具',g:'学习动机问卷。',h:'包含任务价值、参与、享受、自我效能四类，每类 6 题，五点李克特量表，满分 120。'},
+  ancova:{t:'ANCOVA',c:'统计',g:'协方差分析，在统计上控制一个变量后再比较组间差异。',h:'以前测分数为协变量，比较四组在 SKT 后测和延迟后测上的差异。'},
+  rm:{t:'重复测量 ANOVA',c:'统计',g:'对同一组被试多次测量结果进行方差分析。',h:'用于分析 SLMQ 和四类论证成分在六个主题中的变化趋势。'},
+  kripp:{t:'Krippendorff’s α',c:'统计',g:'衡量多个编码者之间一致程度的信度指标。',h:'论证类别 α = .91，论证质量 α = .86，说明编码结果较可靠。'},
+  level2:{t:'Level 2 论证',c:'论证',g:'高质量论证的评分等级。',h:'同时满足三个条件：有实证或理论支持、科学准确、逻辑连贯，得 2 分。Level 1 得 1 分，Level 0 得 0 分。'},
+  srl:{t:'自我调节学习',c:'理论',g:'学习者计划、监控并调整自己学习过程的能力。',h:'论文用它解释 GAI 撤除后学生如何逐步恢复，以及视觉支架如何支持重新参与推理。'},
+  overrel:{t:'过度依赖',c:'理论',g:'学习者过度依赖 AI 给出的答案，减少独立思考。',h:'GAI 撤除后动机和论证质量下降；GAI 支持时学生论证方差低、内容多样性少。'},
+  ceiling:{t:'天花板/地板效应',c:'统计',g:'题目太易导致高分集中，或太难导致低分集中。',h:'Claim/warrant 高且下降明显，qualifier 低分难提升，都可能受天花板/地板效应影响。'},
+  eco:{t:'生态效度',c:'方法',g:'研究结果能推广到真实生活情境的程度。',h:'研究使用真实班级、真实科学主题、跨学科课程，生态效度较好。'},
+  internal:{t:'内部效度',c:'方法',g:'研究能排除其他解释、确认因果关系的程度。',h:'支架条件不完全可比、主题与 GAI 条件混淆，可能降低内部效度。'},
+  confound:{t:'混淆变量',c:'方法',g:'与自变量同时变化、可能干扰结果解释的变量。',h:'GAI 撤除与主题切换绑定，主题难度、熟悉度成为潜在混淆变量。'},
+  mediator:{t:'中介变量',c:'方法',g:'解释自变量如何影响因变量的中间机制变量。',h:'动机在本研究中是结果变量，未作为中介变量分析。'}
+};
 
 /* =========================================================
-   1. 首页 GAI 开关
+   1. 首页三阶段
    ========================================================= */
-(function(){
-  const btn = document.getElementById('gaiToggle');
-  const state = document.getElementById('gaiState');
-  const aiCard = document.getElementById('aiCard');
-  const stuCard = document.getElementById('studentCard');
-  const stuText = document.getElementById('studentText');
-  let on = true;
-
-  btn.addEventListener('click', () => {
-    on = !on;
-    if(on){
-      state.textContent = 'GAI 已开启';
-      btn.textContent = '撤除 GAI';
-      aiCard.classList.remove('dim');
-      aiCard.classList.add('hl');
-      stuCard.classList.remove('hl');
-      stuText.textContent = '（学生直接采用 AI 的答案，几乎没有自己的推理过程。）';
-    }else{
-      state.textContent = 'GAI 已撤除';
-      btn.textContent = '重新开启 GAI';
-      aiCard.classList.add('dim');
-      aiCard.classList.remove('hl');
-      stuCard.classList.add('hl');
-      stuText.textContent = '（学生卡住了：只写出「苹果变褐色了」，想不出为什么，也想不到反驳和限定。）';
-    }
-  });
-})();
-
-/* =========================================================
-   2. TAP 六变四
-   ========================================================= */
-(function(){
-  const btn = document.getElementById('mergeBtn');
-  const cData = document.getElementById('cData');
-  const cWarrant = document.getElementById('cWarrant');
-  const cBacking = document.getElementById('cBacking');
-  const rWarrant = document.getElementById('rWarrant');
-  let merged = false;
-
-  btn.addEventListener('click', () => {
-    merged = !merged;
-    if(merged){
-      cData.classList.add('merge');
-      cBacking.classList.add('merge');
-      cWarrant.classList.add('merge');
-      rWarrant.classList.add('merged');
-      rWarrant.textContent = '理由 Warrant（含 Data / Backing）';
-      btn.textContent = '撤销合并';
-    }else{
-      [cData,cBacking,cWarrant].forEach(el=>el.classList.remove('merge'));
-      rWarrant.classList.remove('merged');
-      rWarrant.textContent = '理由 Warrant';
-      btn.textContent = '执行合并';
-    }
-  });
-})();
-
-/* =========================================================
-   3. 鱼骨图配对
-   ========================================================= */
-(function(){
-  const SLOT_INFO = {
-    claim:     {name:'主张 Claim',      ex:'“我认为苹果变褐是因为氧化，我看到它变褐色了。”'},
-    warrant:   {name:'理由 Warrant',    ex:'“第 1 天苹果白而脆，第 10 天变褐——这是腐烂的迹象，说明有细菌。”'},
-    rebuttal:  {name:'反驳 Rebuttal',   ex:'“不只是氧化——到第 10 天苹果缩小了，所以我觉得也有微生物。”'},
-    qualifier: {name:'限定 Qualifier',  ex:'“可能两者都发生了。先是氧化让它变褐，之后细菌或霉菌让它腐烂起泡。”'}
-  };
-  const slots = Array.from(document.querySelectorAll('.fish-slot'));
-  const tags = Array.from(document.querySelectorAll('.arg-tag'));
-  const msg = document.getElementById('fbMsg');
-  const resetBtn = document.getElementById('fbReset');
-  let selected = null;
-
-  function clearSel(){
-    selected = null;
-    tags.forEach(t=>t.classList.remove('selected'));
+const STAGES = {
+  1:{
+    cls:'bad',
+    elements:[
+      {k:'主张 Claim',v:'转基因食品绝对不能推广！！',e:'情绪化表达，观点过于绝对，缺乏限定词，未体现批判性思考。'},
+      {k:'资料 Data',v:'1. 新闻上说美国人不吃转基因？\n2. 孟山都公司太黑了，卖除草剂还卖抗除草剂的种子。',e:'信息来源模糊，缺乏权威数据支撑；将商业伦理问题与科学安全问题混淆。'},
+      {k:'佐证 Warrant',v:'因为……因为这是人造的，大自然本来没有的东西肯定有毒？',e:'典型的“诉诸自然”逻辑谬误，将个人直觉等同于科学原理，逻辑桥梁断裂。'},
+      {k:'支撑 Backing',v:'课本上写了“中心法则”……不对，这个用不上。',e:'未能准确理解科学概念，无法将理论知识与论证要素建立有效联系。'},
+      {k:'反驳 Rebuttal',v:'对方肯定会说：“袁隆平院士也支持转基因！”我的回击：难道怕噎着就不吃饭了？',e:'采用情绪化反问和“滑坡谬误”进行防御，未能针对对方的核心论点进行科学反驳。'},
+      {k:'限定 Qualifier',v:'（空白，学生没有写出限定词）',e:'完全缺失，说明学生没有意识到主张需要限定条件。'}
+    ],
+    note:'<b>纯 TAP 理论</b>能帮学生“看到”论证结构，但无法解决证据质量、逻辑谬误和概念理解问题。'
+  },
+  2:{
+    cls:'good',
+    elements:[
+      {k:'主张 Claim',v:'在严格的安全评价和监管体系下，可以认可转基因食品的应用价值，但公众应享有充分的知情权。',e:'观点客观严谨，加入了合理的限定条件，体现了辩证思维。'},
+      {k:'资料 Data',v:'1. 转基因大豆油在精炼榨油过程中，蛋白质和DNA会被降解破坏，最终产品中几乎不含外源基因。\n2. 我国实行严格的《农业转基因生物安全管理条例》，要求对转基因产品进行明确的标识制度。',e:'引用了准确的生物学加工事实与权威法规制度，剔除了情绪化传言，增强了现实基础。'},
+      {k:'佐证 Warrant',v:'转基因技术的安全性不能脱离“加工方式和监管体系”来孤立讨论。经过严格评估的食品在食用安全性上有保障，但环境层面的长期影响需要持续监测。',e:'成功搭建了逻辑桥梁，将“科学事实”与“监管政策”合理推导至“理性看待”的主张。'},
+      {k:'支撑 Backing',v:'依据“中心法则”及消化生理学，所有食物中的基因进入人体消化道后都会被分解为基础营养物质，不会直接整合入人体DNA。',e:'准确调用了生物学底层理论，为佐证提供了坚实的科学背书。'},
+      {k:'反驳 Rebuttal',v:'对方可能提出：“转基因是跨物种的基因重组，违背自然规律。”我方回应：传统杂交育种同样会改变遗传物质，而转基因是定向改造，其新引入的蛋白质在上市前必须经过严格的毒理学评估。两者的风险机制不同，不能简单用“自然与否”判定安全性。',e:'预判了对立观点，并运用科学机制进行精准反击，逻辑严密，摒弃了情绪化抬杠。'},
+      {k:'限定 Qualifier',v:'在严格的安全评价和监管体系下……（已内嵌在主张中）',e:'限定条件明确，但尚未独立成项，说明学生还需要视觉支架来强化“限定”意识。'}
+    ],
+    note:'<b>AI 指导后</b>，学生能补上证据、逻辑和反驳，但“限定”仍容易被忽略，论证结构也还没有真正内化。'
+  },
+  3:{
+    cls:'good',
+    elements:[
+      {k:'主张 Claim',v:'在严格的安全评价和监管体系下，可以认可转基因食品的应用价值，但公众应享有充分的知情权。',e:'鱼头位置，帮助维持焦点。'},
+      {k:'资料 Data',v:'1. 转基因大豆油精炼后几乎不含外源基因\n2. 我国实行严格的标识制度',e:'上骨位置，按来源和成分组织支持性证据。'},
+      {k:'佐证 Warrant',v:'转基因技术的安全性不能脱离“加工方式和监管体系”来孤立讨论……',e:'上骨位置，搭建从证据到主张的逻辑桥梁。'},
+      {k:'支撑 Backing',v:'依据“中心法则”及消化生理学，食物中的基因进入消化道后都会被分解。',e:'上骨位置，为佐证提供科学理论背书。'},
+      {k:'反驳 Rebuttal',v:'对方可能提出：“转基因是跨物种的基因重组，违背自然规律。”我方回应：传统杂交育种同样会改变遗传物质……',e:'下骨位置，预判对立观点并精准反击。'},
+      {k:'限定 Qualifier',v:'在严格的安全评价和监管体系下……',e:'鱼尾位置，反思主张成立的条件。'}
+    ],
+    note:'<b>加入鱼骨图后</b>，论证不是一条直线，而是一个有结构的整体。限定不再是“附加项”，而是鱼尾——没有它，鱼就游不稳。'
   }
-
-  tags.forEach(tag => {
-    tag.addEventListener('click', () => {
-      if(tag.classList.contains('done')) return;
-      tags.forEach(t=>t.classList.remove('selected'));
-      tag.classList.add('selected');
-      selected = tag;
-      msg.textContent = '已选中「' + tag.textContent + '」，现在点击鱼骨图上的位置。';
-    });
-  });
-
-  slots.forEach(slot => {
-    slot.addEventListener('click', () => {
-      if(!selected){
-        msg.textContent = '⚠️ 请先在上方选择一个论证要素标签。';
-        return;
-      }
-      const key = slot.dataset.key;
-      if(key === selected.dataset.key){
-        // 正确
-        slot.classList.remove('wrong');
-        slot.classList.add('correct');
-        slot.innerHTML = '<div class="pos">' + slot.querySelector('.pos').textContent + '</div>' +
-                         '<div class="filled">' + SLOT_INFO[key].name + '</div>' +
-                         '<div class="ex">' + SLOT_INFO[key].ex + '</div>';
-        selected.classList.add('done');
-        selected.classList.remove('selected');
-        msg.textContent = '✅ 正确！' + SLOT_INFO[key].name + ' 已就位。';
-        clearSel();
-        if(tags.every(t=>t.classList.contains('done'))){
-          msg.textContent = '🎉 四个要素全部就位！这就是 FLAP 平台里鱼骨图的用法。';
-        }
-      }else{
-        // 错误
-        slot.classList.add('wrong');
-        setTimeout(()=>slot.classList.remove('wrong'), 500);
-        msg.textContent = '❌ 位置不对，再想想：这个要素在论证中承担什么功能？';
-      }
-    });
-  });
-
-  resetBtn.addEventListener('click', () => {
-    slots.forEach(s => {
-      const posName = s.querySelector('.pos') ? s.querySelector('.pos').textContent : '';
-      s.className = 'fish-slot';
-      s.dataset.key = s.dataset.key; // 保持
-      s.innerHTML = '<div class="pos">' + posName + '</div><div class="hint">点击放置</div>';
-    });
-    tags.forEach(t => t.classList.remove('done','selected'));
-    clearSel();
-    msg.textContent = '👉 已重置，重新开始配对。';
-  });
-})();
-
-/* =========================================================
-   4. 实验设计
-   ========================================================= */
-const DESIGN = {
-  E1:{ n:53, label:'E1 整合支架 + GAI',
-       cells:['视觉支架 + GAI','视觉支架 + GAI','视觉支架 + GAI','视觉支架 + GAI','视觉支架 + GAI','视觉支架 + GAI'],
-       note:'E1 是「全程最高支持」组，相当于本研究的上限基准：六个主题都同时拥有鱼骨图视觉支架和 GAI。'},
-  E2:{ n:52, label:'E2 整合支架（后撤 GAI）',
-       cells:['视觉支架 + GAI','视觉支架 + GAI','视觉支架 + GAI','仅视觉支架','仅视觉支架','仅视觉支架'],
-       note:'E2 是本研究的关键组：前三主题和 E1 一样，主题 4 起撤除 GAI，但保留鱼骨图。结果它是唯一延迟测没有显著下滑的组。'},
-  E3:{ n:52, label:'E3 最小支架（后撤 GAI）',
-       cells:['最小支架 + GAI','最小支架 + GAI','最小支架 + GAI','最小支架','最小支架','最小支架'],
-       note:'E3 相当于「低视觉支架」对照：撤除 GAI 后，动机和论证质量下滑最明显，恢复也最慢。'},
-  C:{ n:54, label:'C 教师中心传统教学',
-       cells:['传统讲授','传统讲授','传统讲授','传统讲授','传统讲授','传统讲授'],
-       note:'控制组采用教师中心讲授，使用相同六个主题和统一教材，作为「真实课堂」的参照基线。'}
 };
 
 (function(){
-  const tabs = document.querySelectorAll('.gtab');
-  const tl = document.getElementById('timeline');
-  const note = document.getElementById('designNote');
-  let cur = 'E1';
+  const tabs = document.querySelectorAll('.stab');
+  const left = document.getElementById('stageLeft');
+  const right = document.getElementById('stageRight');
+  const note = document.getElementById('stageNote');
 
-  function render(g){
-    const d = DESIGN[g];
-    tl.innerHTML = d.cells.map((c,i) => {
-      const isGAI = c.includes('GAI');
-      const isCtrl = c.includes('传统');
-      const cls = isCtrl ? 'ctrl' : (isGAI ? 'gai' : 'nogai');
-      const status = isCtrl ? '教师讲授' : (isGAI ? '有 GAI' : '无 GAI');
-      const tool = isCtrl ? '统一教材' : (c.includes('视觉支架') ? '鱼骨图支架' : '基础支持');
-      return `<div class="tp ${cls}">
-        <div class="tn">TOPIC ${i+1}</div>
-        <div class="tt">${THEMES[i]}</div>
-        <div class="st">${tool}<br>${status}</div>
+  function render(s){
+    const d = STAGES[s];
+    left.innerHTML = d.elements.map(el => `
+      <div class="tap-card ${d.cls}">
+        <div class="tch"><span class="dot"></span>${el.k}</div>
+        <div class="tcb">${el.v.replace(/\n/g,'<br>')}</div>
+        <div class="tce">评价：${el.e}</div>
+      </div>`).join('');
+    note.innerHTML = d.note;
+
+    if(s === 3){
+      right.innerHTML = `
+      <svg class="fish-svg" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="355" cy="160" rx="72" ry="50" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+        <text x="355" y="152" text-anchor="middle" font-size="14" font-weight="700" fill="#4f46e5">主张</text>
+        <text x="355" y="172" text-anchor="middle" font-size="11" fill="#6366f1">Claim</text>
+        <polygon points="55,160 105,122 105,198" fill="#fff7ed" stroke="#f59e0b" stroke-width="2.5"/>
+        <text x="78" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#c2410c">限定</text>
+        <text x="78" y="172" text-anchor="middle" font-size="10" fill="#f59e0b">Qualifier</text>
+        <line x1="105" y1="160" x2="283" y2="160" stroke="#334155" stroke-width="2.5"/>
+        <line x1="160" y1="160" x2="215" y2="80" stroke="#0ea5e9" stroke-width="2.2"/>
+        <line x1="235" y1="160" x2="290" y2="80" stroke="#0ea5e9" stroke-width="2.2"/>
+        <text x="188" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="#0284c7">佐证</text>
+        <text x="263" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="#0284c7">资料</text>
+        <line x1="160" y1="160" x2="215" y2="240" stroke="#ef4444" stroke-width="2.2"/>
+        <line x1="235" y1="160" x2="290" y2="240" stroke="#ef4444" stroke-width="2.2"/>
+        <text x="188" y="258" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">反驳</text>
+        <text x="263" y="258" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">反驳</text>
+        <text x="230" y="310" text-anchor="middle" font-size="11" fill="#94a3b8">每个位置最多放 4 条论证</text>
+      </svg>`;
+    }else{
+      right.innerHTML = `<div style="color:#94a3b8;font-size:13.5px;text-align:center;padding:30px 10px;border:1px dashed rgba(255,255,255,.25);border-radius:14px;width:100%">
+        ${s===1?'纯 TAP 阶段还没有视觉支架':'AI 阶段还没有鱼骨图，论证仍以文本形式呈现'}
       </div>`;
-    }).join('');
-    note.textContent = d.note;
+    }
   }
 
   tabs.forEach(t => {
     t.addEventListener('click', () => {
       tabs.forEach(x=>x.classList.remove('active'));
       t.classList.add('active');
-      render(t.dataset.g);
+      render(+t.dataset.s);
     });
   });
-  render('E1');
+  render(1);
 })();
 
 /* =========================================================
-   5. 结果探索器
+   2. 结果图表
    ========================================================= */
+const THEMES = ['主题1','主题2','主题3','主题4','主题5','主题6'];
+const COLORS = {E1:'#4f46e5', E2:'#0ea5e9', E3:'#f59e0b', C:'#94a3b8'};
+const GROUP_NAME = {E1:'E1 整合支架+GAI', E2:'E2 整合支架（后撤GAI）', E3:'E3 最小支架（后撤GAI）', C:'C 控制组'};
+
 const METRICS = {
   skt: {
-    type:'bar',
-    label:'SKT 科学概念理解',
-    yMax:24,
+    type:'bar', label:'SKT 科学概念理解', yMax:24,
     note:'SKT 为 24 题二段式诊断测试。只有 E2 组在后测到延迟测之间没有显著下降，说明其知识保持最稳定。',
     data:[
       {g:'E1', post:22.05, delay:21.45},
@@ -714,9 +836,8 @@ const METRICS = {
   const chartBox = document.getElementById('chartBox');
   const noteBox = document.getElementById('metricNote');
   let cur = 'skt';
-  let hidden = {};   // 被隐藏的组
+  let hidden = {};
 
-  // 渲染指标按钮
   Object.keys(METRICS).forEach(k => {
     const b = document.createElement('button');
     b.className = 'mtab' + (k===cur ? ' active' : '');
@@ -738,14 +859,12 @@ const METRICS = {
       </span>`).join('');
     legendBox.querySelectorAll('span').forEach(sp => {
       sp.addEventListener('click', () => {
-        const g = sp.dataset.g;
-        hidden[g] = !hidden[g];
+        hidden[sp.dataset.g] = !hidden[sp.dataset.g];
         render();
       });
     });
   }
 
-  // ---- 折线图 ----
   function renderLine(m){
     const W=860, H=420, pad={l:60, r:28, t:34, b:60};
     const plotW = W - pad.l - pad.r;
@@ -753,27 +872,18 @@ const METRICS = {
     const n = 6;
     const X = i => pad.l + plotW * i / (n - 1);
     const Y = v => pad.t + plotH * (1 - (v - m.yMin) / (m.yMax - m.yMin));
-
     let s = '';
-
-    // 网格 + y 轴刻度
     m.ticks.forEach(t => {
       const yy = Y(t);
       s += `<line x1="${pad.l}" y1="${yy}" x2="${W-pad.r}" y2="${yy}" stroke="#eef2f7" stroke-width="1"/>`;
       s += `<text x="${pad.l-12}" y="${yy+4}" text-anchor="end" fill="#94a3b8" font-size="12">${t}</text>`;
     });
-
-    // x 轴标签
     THEMES.forEach((t,i) => {
       s += `<text x="${X(i)}" y="${H-pad.b+26}" text-anchor="middle" fill="#64748b" font-size="13">${t}</text>`;
     });
-
-    // GAI 撤除标记线（主题3与主题4之间）
     const xm = X(2.5);
     s += `<line x1="${xm}" y1="${pad.t-6}" x2="${xm}" y2="${H-pad.b}" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 5"/>`;
     s += `<text x="${xm+8}" y="${pad.t-10}" fill="#b45309" font-size="12" font-weight="600">GAI 撤除点</text>`;
-
-    // 折线
     Object.keys(m.series).forEach(g => {
       if(hidden[g]) return;
       const vals = m.series[g];
@@ -783,11 +893,9 @@ const METRICS = {
         s += `<circle cx="${X(i)}" cy="${Y(v)}" r="4.5" fill="#fff" stroke="${COLORS[g]}" stroke-width="2.6"/>`;
       });
     });
-
     chartBox.innerHTML = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
   }
 
-  // ---- 柱状图（SKT）----
   function renderBar(m){
     const max = m.yMax;
     let html = '<div class="bar-chart">';
@@ -813,178 +921,100 @@ const METRICS = {
   function render(){
     const m = METRICS[cur];
     noteBox.textContent = m.note;
-
-    if(m.type === 'bar'){
-      legendBox.innerHTML = '';
-      renderBar(m);
-    }else{
-      renderLegend(Object.keys(m.series));
-      renderLine(m);
-    }
+    if(m.type === 'bar'){ legendBox.innerHTML = ''; renderBar(m); }
+    else{ renderLegend(Object.keys(m.series)); renderLine(m); }
   }
-
   render();
 })();
 
 /* =========================================================
-   6. 术语词典
+   3. 术语内联高亮 + 弹出卡
    ========================================================= */
-const GLOSSARY = [
-  {term:'生成式 AI（GAI）', cat:'理论', general:'能根据提示自动生成文本、图像、代码等内容的 AI，如 ChatGPT、Copilot。', here:'学生可自由使用 ChatGPT、Copilot 等帮助科学论证；研究担心依赖，因此在后三个主题对 E2、E3 撤除 GAI。'},
-  {term:'视觉支架', cat:'理论', general:'用图形、图像、结构图帮助学习者组织信息、降低认知难度的支持手段。', here:'指 TAP 模型 + 鱼骨图，嵌入 FLAP 平台，支持 claim、warrant、rebuttal、qualifier 四类论证成分。'},
-  {term:'科学论证', cat:'理论', general:'用证据和推理支持主张，并回应不同观点的过程。', here:'学生基于“找不同”图片，提出主张、理由、反驳和限定，共六个科学主题。'},
-  {term:'TAP（Toulmin 论证模式）', cat:'理论', general:'高质量论证包含主张、数据、理由、支持、反驳、限定六个要素。', here:'因中学生难区分 data、warrant、backing，本研究将其简化为四要素：claim、warrant、rebuttal、qualifier。'},
-  {term:'鱼骨图', cat:'理论', general:'因果分析图，鱼头是问题或结果，鱼骨是原因，用于梳理复杂因果关系。', here:'鱼头放 claim，上骨放 warrant 和证据，下骨放 rebuttal，鱼尾放 qualifier，每个位置最多显示 4 条论证。'},
-  {term:'双编码理论', cat:'理论', general:'语言和视觉两个通道同时加工信息时，学习效果更好。', here:'因为 GAI 主要靠文本交互，所以加入鱼骨图补足视觉通道，形成“文本 + 视觉”的互补。'},
-  {term:'社会建构主义', cat:'理论', general:'知识通过人与人的社会互动建构，而非单向传递。', here:'FLAP 采用小组合作（3-4 人异质分组）和讨论区互评，学生可查看同伴论证并追问。'},
-  {term:'准实验设计', cat:'方法', general:'无法随机分组时，使用现成班级进行比较的研究设计。', here:'211 名七年级学生来自 8 个班，按原有班级分为 E1、E2、E3 和控制组四组。'},
-  {term:'混合设计', cat:'方法', general:'同时包含组间比较和组内重复测量的设计。', here:'视觉支架是组间因素（整合 vs 最小），GAI 有无是组内因素（前三主题 vs 后三主题）。'},
-  {term:'组间因素', cat:'方法', general:'不同组接受不同处理条件。', here:'E1、E2 接受整合视觉支架，E3 接受最小支架，控制组接受传统讲授。'},
-  {term:'组内因素', cat:'方法', general:'同一组在不同时间接受不同条件。', here:'前三主题有 GAI，后三主题 E2、E3 撤除 GAI，比较撤除前后的表现变化。'},
-  {term:'延迟后测', cat:'方法', general:'干预结束一段时间后再测一次，检验学习保持效果。', here:'教学实验结束三周后进行 SKT 延迟后测，只有 E2 组无显著下降。'},
-  {term:'FLAP 平台', cat:'平台', general:'在线学习平台的名称。', here:'Fishbone Learning for Argumentation with Prompting，三个版本只在 GAI 和鱼骨图上有差异。'},
-  {term:'句子启动器', cat:'平台', general:'预设的句式开头，帮助学生开始写作或表达。', here:'四类句式对应四类论证成分，选择后自动填入文字并定位到鱼骨图对应位置。'},
-  {term:'SKT', cat:'平台', general:'科学知识测试。', here:'24 题二段式诊断测试，覆盖六个主题的科学概念，只有全部选对才得满分，Cronbach’s α = .88。'},
-  {term:'SLMQ', cat:'平台', general:'学习动机问卷。', here:'包含任务价值、参与、享受、自我效能四类，每类 6 题，五点李克特量表，满分 120。'},
-  {term:'Claim（主张）', cat:'论证', general:'一个被提出以供讨论或支持的观点。', here:'鱼头位置。例：“我认为苹果变褐是因为氧化，我看到它变褐色了。”（Level 2）'},
-  {term:'Warrant（理由）', cat:'论证', general:'连接证据与主张的底层原理或推理。', here:'上骨位置。例：“第 1 天苹果白而脆，第 10 天变褐——这是腐烂的迹象，说明有细菌。”（Level 2）'},
-  {term:'Rebuttal（反驳）', cat:'论证', general:'用来挑战对立主张、推理或观点的反论证。', here:'下骨位置。例：“不只是氧化——到第 10 天苹果缩小了，所以我觉得也有微生物。”（Level 2）'},
-  {term:'Qualifier（限定）', cat:'论证', general:'限制主张适用范围或表示确定程度的词句。', here:'鱼尾位置。例：“可能两者都发生了。先是氧化让它变褐，之后细菌或霉菌让它腐烂起泡。”（Level 2）'},
-  {term:'Level 2 论证', cat:'论证', general:'高质量论证的评分等级。', here:'同时满足三个条件：有实证或理论支持、科学准确、逻辑连贯，得 2 分。Level 1 得 1 分，Level 0 得 0 分。'},
-  {term:'ANCOVA', cat:'统计', general:'协方差分析，在统计上控制一个变量后再比较组间差异。', here:'以前测分数为协变量，比较四组在 SKT 后测和延迟后测上的差异。'},
-  {term:'重复测量 ANOVA', cat:'统计', general:'对同一组被试多次测量结果进行方差分析。', here:'用于分析 SLMQ 和四类论证成分在六个主题中的变化趋势。'},
-  {term:'Greenhouse-Geisser 校正', cat:'统计', general:'当数据违反球形假设时，对自由度进行校正。', here:'四类论证成分的 Mauchly 检验均显著，因此全部使用该校正。'},
-  {term:'Krippendorff’s α', cat:'统计', general:'衡量多个编码者之间一致程度的信度指标。', here:'论证类别 α = .91，论证质量 α = .86，说明编码结果较可靠。'},
-  {term:'过度依赖', cat:'理论', general:'学习者过度依赖 AI 给出的答案，减少独立思考。', here:'GAI 撤除后动机和论证质量下降；GAI 支持时学生论证方差低、内容多样性少（如都提“密度”）。'},
-  {term:'自我调节学习', cat:'理论', general:'学习者计划、监控并调整自己学习过程的能力。', here:'论文用它解释 GAI 撤除后学生如何逐步恢复，以及视觉支架如何支持重新参与推理。'},
-  {term:'认知负荷', cat:'理论', general:'工作记忆在处理信息时承受的负担。', here:'TAP 结构抽象、认知负荷高，因此用鱼骨图降低负荷，并把每个位置限制为 4 条论证。'}
-];
-
 (function(){
-  const grid = document.getElementById('glossGrid');
-  const search = document.getElementById('glossSearch');
+  const card = document.getElementById('termCard');
+  const tcTitle = document.getElementById('tcTitle');
+  const tcCat = document.getElementById('tcCat');
+  const tcGeneral = document.getElementById('tcGeneral');
+  const tcHere = document.getElementById('tcHere');
+  const tcClose = document.getElementById('termClose');
+  let activeTerm = null;
 
-  function render(kw){
-    const k = (kw||'').trim().toLowerCase();
-    const list = GLOSSARY.filter(x =>
-      !k || x.term.toLowerCase().includes(k) || x.cat.toLowerCase().includes(k) ||
-      x.general.toLowerCase().includes(k) || x.here.toLowerCase().includes(k)
-    );
-    if(!list.length){
-      grid.innerHTML = '<p style="color:#94a3b8;font-size:14px">没有找到匹配的术语，换个关键词试试。</p>';
-      return;
-    }
-    grid.innerHTML = list.map(x => `
-      <div class="gloss">
-        <span class="cat">${x.cat}</span>
-        <h4>${x.term}</h4>
-        <div class="row"><b>一般解释：</b>${x.general}</div>
-        <div class="row here"><b>本论文中：</b>${x.here}</div>
-      </div>`).join('');
+  function showCard(key, el){
+    const d = TERMS[key];
+    if(!d) return;
+    tcTitle.textContent = d.t;
+    tcCat.textContent = d.c;
+    tcGeneral.textContent = d.g;
+    tcHere.textContent = d.h;
+    card.classList.add('show');
+    const r = el.getBoundingClientRect();
+    let left = r.left;
+    let top = r.bottom + 8;
+    if(left + 380 > window.innerWidth) left = window.innerWidth - 390;
+    if(left < 8) left = 8;
+    if(top + 240 > window.innerHeight) top = r.top - 250;
+    if(top < 8) top = 8;
+    card.style.left = left + 'px';
+    card.style.top = top + 'px';
+    activeTerm = el;
   }
 
-  search.addEventListener('input', e => render(e.target.value));
-  render('');
+  document.querySelectorAll('.term').forEach(el => {
+    el.addEventListener('click', e => {
+      e.stopPropagation();
+      const key = el.dataset.key;
+      if(activeTerm === el && card.classList.contains('show')){
+        card.classList.remove('show');
+        activeTerm = null;
+      }else{
+        showCard(key, el);
+      }
+    });
+    el.addEventListener('mouseenter', () => {
+      if(!card.classList.contains('show')) el.style.background = 'var(--soft)';
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.background = 'transparent';
+    });
+  });
+
+  tcClose.addEventListener('click', () => {
+    card.classList.remove('show');
+    activeTerm = null;
+  });
+  document.addEventListener('click', e => {
+    if(!card.contains(e.target) && !e.target.classList.contains('term')){
+      card.classList.remove('show');
+      activeTerm = null;
+    }
+  });
 })();
 
 /* =========================================================
-   7. 自测
+   4. 鱼骨图图例点击（理论与方法）
    ========================================================= */
-const QUIZ = [
-  {
-    q:'本研究把 TAP 简化后，保留的四要素是？',
-    opts:['主张、数据、理由、支持','主张、理由、反驳、限定','数据、理由、支持、反驳','主张、证据、反例、结论'],
-    a:1,
-    ex:'论文把 data、warrant、backing 合并到 warrant 之下，简化为 claim、warrant、rebuttal、qualifier 四要素，以降低中学生的认知负荷。'
-  },
-  {
-    q:'鱼骨图的“鱼头”在本研究中对应哪个论证成分？',
-    opts:['理由 Warrant','反驳 Rebuttal','主张 Claim','限定 Qualifier'],
-    a:2,
-    ex:'鱼头放 claim，帮助维持焦点；上骨放 warrant 和证据，下骨放 rebuttal，鱼尾放 qualifier。'
-  },
-  {
-    q:'E2 组的实验条件是什么？',
-    opts:['全程整合视觉支架 + GAI','整合视觉支架，后 3 主题撤除 GAI','最小支架，后 3 主题撤除 GAI','教师中心传统教学'],
-    a:1,
-    ex:'E2 是“全程整合视觉支架 + 前三主题有 GAI，后三主题撤除 GAI”，这是检验视觉支架能否补偿 GAI 撤除的关键组。'
-  },
-  {
-    q:'GAI 是在第几个主题之后被撤除的？',
-    opts:['主题 2 之后','主题 3 之后','主题 4 之后','没有撤除'],
-    a:1,
-    ex:'前三主题在 GAI 支持下进行，后三主题（主题 4-6）撤除 GAI，以观察学生的表现轨迹。'
-  },
-  {
-    q:'哪个组在后测到延迟后测之间没有出现显著下滑？',
-    opts:['E1','E2','E3','控制组'],
-    a:1,
-    ex:'只有 E2 组（t(51)=1.134, p>.05）没有显著下降；E1、E3 和控制组均显著下降。'
-  },
-  {
-    q:'四类论证成分中，得分普遍最低的是哪一个？',
-    opts:['Claim','Warrant','Rebuttal','Qualifier'],
-    a:3,
-    ex:'Qualifier（限定）在所有组中得分最低，说明中学生在条件性、限定性表达上普遍薄弱。'
-  },
-  {
-    q:'双编码理论在本研究中主要用来支持什么设计决策？',
-    opts:['用小组合作代替个别学习','用视觉支架补充 GAI 的纯文本交互','用延迟后测检验学习保持','用 ANCOVA 控制前测差异'],
-    a:1,
-    ex:'双编码理论认为语言与视觉双通道同时加工能提升学习，因此研究在文本型 GAI 之外加入鱼骨图视觉支架。'
-  },
-  {
-    q:'论文对“视觉支架能否完全消除 GAI 依赖”的结论是？',
-    opts:['能完全消除','完全无效','有一定补偿作用，但不能完全消除依赖','只对控制组有效'],
-    a:2,
-    ex:'论文明确指出：视觉支架可能帮助维持表现，但“不应被解释为学生依赖的消除”；GAI 撤除后多数组仍出现下滑。'
-  }
-];
-
 (function(){
-  const list = document.getElementById('quizList');
-  const scoreNum = document.getElementById('scoreNum');
-  const resetBtn = document.getElementById('quizReset');
-  let score = 0;
-  let answered = 0;
-
-  function build(){
-    score = 0; answered = 0;
-    scoreNum.textContent = '0';
-    list.innerHTML = QUIZ.map((q,qi) => `
-      <div class="quiz-q">
-        <div class="qh"><span>Q${qi+1}.</span>${q.q}</div>
-        <div class="opts">
-          ${q.opts.map((o,oi) => `<button class="opt" data-q="${qi}" data-o="${oi}">${String.fromCharCode(65+oi)}. ${o}</button>`).join('')}
-        </div>
-        <div class="explain" id="ex-${qi}"><b>解析：</b>${q.ex}</div>
-      </div>`).join('');
-
-    list.querySelectorAll('.opt').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const qi = +btn.dataset.q;
-        const oi = +btn.dataset.o;
-        const box = btn.parentElement;
-        if(box.dataset.done) return;
-        box.dataset.done = '1';
-
-        const correct = QUIZ[qi].a;
-        box.querySelectorAll('.opt').forEach((b,idx) => {
-          b.disabled = true;
-          if(idx === correct) b.classList.add('correct');
-          if(idx === oi && oi !== correct) b.classList.add('wrong');
-        });
-        document.getElementById('ex-' + qi).classList.add('show');
-
-        answered++;
-        if(oi === correct) score++;
-        scoreNum.textContent = score;
-      });
+  document.querySelectorAll('.fl-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const key = item.dataset.fish;
+      const map = {
+        claim:{t:'主张 Claim',g:'一个被提出以供讨论或支持的观点。',h:'鱼头位置。例：“在严格的安全评价和监管体系下，可以认可转基因食品的应用价值。”（Level 2）'},
+        warrant:{t:'理由 Warrant + 资料 Data',g:'连接证据与主张的底层原理或推理。',h:'上骨位置。例：“转基因大豆油精炼后几乎不含外源基因”“我国实行严格的标识制度”。'},
+        rebuttal:{t:'反驳 Rebuttal',g:'用来挑战对立主张、推理或观点的反论证。',h:'下骨位置。例：“传统杂交育种同样会改变遗传物质，不能简单用‘自然与否’判定安全性。”'},
+        qualifier:{t:'限定 Qualifier',g:'限制主张适用范围或表示确定程度的词句。',h:'鱼尾位置。例：“在严格的安全评价和监管体系下……”'}
+      };
+      const d = map[key];
+      const card = document.getElementById('termCard');
+      document.getElementById('tcTitle').textContent = d.t;
+      document.getElementById('tcCat').textContent = '鱼骨图';
+      document.getElementById('tcGeneral').textContent = d.g;
+      document.getElementById('tcHere').textContent = d.h;
+      card.classList.add('show');
+      const r = item.getBoundingClientRect();
+      card.style.left = Math.min(r.left, window.innerWidth - 390) + 'px';
+      card.style.top = (r.bottom + 8) + 'px';
     });
-  }
-
-  resetBtn.addEventListener('click', build);
-  build();
+  });
 })();
 </script>
 </body>
