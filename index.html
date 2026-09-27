@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAP理论论证模型演示</title>
+    <!-- 引入 ECharts 用于绘制鱼骨图 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* 内容区块样式 */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .card {
+            background: #f4f8ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .card strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .comment {
+            color: #888;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* 鱼骨图容器 */
+        #fishbone-chart {
+            width: 100%;
+            height: 450px;
+            margin-top: 20px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>TAP理论（图尔敏论证模型）应用演示</h1>
+
+    <!-- 内容一：简单介绍 -->
+    <div class="section">
+        <h2>一、TAP理论简介</h2>
+        <p>TAP理论（图尔敏论证模型，Toulmin’s Argument Pattern）是由英国哲学家斯蒂芬·图尔敏提出的一种结构化论证分析工具。该模型打破了传统形式逻辑的绝对化，强调论证在现实语境中的实用性。TAP模型包含六个核心要素：主张（Claim）、资料（Data）、佐证（Warrant）、支撑（Backing）、限定词（Qualifier）以及反驳（Rebuttal）。它被广泛应用于科学教育、社会议题探讨等领域，帮助人们从单纯的“表达观点”升级为“严谨论证”，从而提升批判性思维。</p>
+    </div>
+
+    <!-- 内容二：真实情况模拟 -->
+    <div class="section">
+        <h2>二、中学生使用TAP理论的真实情况模拟</h2>
+        <div class="card">
+            <strong>【主张 Claim】</strong>
+            观点：转基因食品绝对不能推广！！
+            <div class="comment">（评价：情绪化表达，观点过于绝对，缺乏限定词，未体现批判性思考。）</div>
+        </div>
+        <div class="card">
+            <strong>【资料 Data】</strong>
+            1. 新闻上说美国人不吃转基因？<br>
+            2. 孟山都公司太黑了，卖除草剂还卖抗除草剂的种子。
+            <div class="comment">（评价：信息来源模糊，缺乏权威数据支撑；将商业伦理问题与科学安全问题混淆。）</div>
+        </div>
+        <div class="card">
+            <strong>【佐证 Warrant】</strong>
+            因为……因为这是人造的，大自然本来没有的东西肯定有毒？
+            <div class="comment">（评价：典型的“诉诸自然”逻辑谬误，将个人直觉等同于科学原理，逻辑桥梁断裂。）</div>
+        </div>
+        <div class="card">
+            <strong>【支撑 Backing】</strong>
+            课本上写了“中心法则”……不对，这个用不上。
+            <div class="comment">（评价：未能准确理解科学概念，无法将理论知识与论证要素建立有效联系。）</div>
+        </div>
+        <div class="card">
+            <strong>【反驳 Rebuttal】</strong>
+            对方肯定会说：“袁隆平院士也支持转基因！”我的回击：难道怕噎着就不吃饭了？
+            <div class="comment">（评价：采用情绪化反问和“滑坡谬误”进行防御，未能针对对方的核心论点进行科学反驳。）</div>
+        </div>
+    </div>
+
+    <!-- 内容三：AI指导后模拟 -->
+    <div class="section">
+        <h2>三、AI指导后中学生使用TAP理论的真实情况模拟</h2>
+        <div class="card">
+            <strong>【主张 Claim】</strong>
+            观点：在严格的安全评价和监管体系下，可以认可转基因食品的应用价值，但公众应享有充分的知情权。
+            <div class="comment">（评价：观点客观严谨，加入了合理的限定条件，体现了辩证思维。）</div>
+        </div>
+        <div class="card">
+            <strong>【资料 Data】</strong>
+            1. 转基因大豆油在精炼榨油过程中，蛋白质和DNA会被降解破坏，最终产品中几乎不含外源基因。<br>
+            2. 我国实行严格的《农业转基因生物安全管理条例》，要求对转基因产品进行明确的标识制度。
+            <div class="comment">（评价：引用了准确的生物学加工事实与权威法规制度，剔除了情绪化传言，增强了现实基础。）</div>
+        </div>
+        <div class="card">
+            <strong>【佐证 Warrant】</strong>
+            转基因技术的安全性不能脱离“加工方式和监管体系”来孤立讨论。经过严格评估的食品在食用安全性上有保障，但环境层面的长期影响需要持续监测。
+            <div class="comment">（评价：成功搭建了逻辑桥梁，将“科学事实”与“监管政策”合理推导至“理性看待”的主张。）</div>
+        </div>
+        <div class="card">
+            <strong>【支撑 Backing】</strong>
+            依据“中心法则”及消化生理学，所有食物中的基因进入人体消化道后都会被分解为基础营养物质，不会直接整合入人体DNA。
+            <div class="comment">（评价：准确调用了生物学底层理论，为佐证提供了坚实的科学背书。）</div>
+        </div>
+        <div class="card">
+            <strong>【反驳 Rebuttal】</strong>
+            对方可能提出：“转基因是跨物种的基因重组，违背自然规律。”我方回应：传统杂交育种同样会改变遗传物质，而转基因是定向改造，其新引入的蛋白质在上市前必须经过严格的毒理学评估。两者的风险机制不同，不能简单用“自然与否”判定安全性。
+            <div class="comment">（评价：预判了对立观点，并运用科学机制进行精准反击，逻辑严密，摒弃了情绪化抬杠。）</div>
+        </div>
+    </div>
+
+    <!-- 内容五：表格标注 -->
+    <div class="section">
+        <h2>五、TAP论证要素在鱼骨图上的位置标注</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>TAP论证要素</th>
+                    <th>鱼骨图位置</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>主张（Claim）</td>
+                    <td>鱼头</td>
+                    <td>作为论证的核心观点，放在鱼骨图最显眼的位置，代表论证的最终导向。</td>
+                </tr>
+                <tr>
+                    <td>论证依据（Warrant）</td>
+                    <td>上骨（上鱼刺）</td>
+                    <td>支撑主张的理由和证据，位于主轴上方，代表推动核心观点成立的正面逻辑力量。</td>
+                </tr>
+                <tr>
+                    <td>反驳（Rebuttal）</td>
+                    <td>下骨（下鱼刺）</td>
+                    <td>对相反观点的回应和反驳，位于主轴下方，代表抵御外部质疑、加固主张的防御力量。</td>
+                </tr>
+                <tr>
+                    <td>限定词（Qualifier）</td>
+                    <td>鱼尾</td>
+                    <td>对主张适用条件的限定说明，位于鱼骨图的起始端，代表论证的边界和严谨性基础。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 内容四 & 六：鱼骨图代码与映射 -->
+    <div class="section">
+        <h2>四 & 六、AI指导后的TAP案例鱼骨图可视化</h2>
+        <div id="fishbone-chart"></div>
+    </div>
+
+</div>
+
+<script>
+    // 初始化 ECharts 实例
+    var chartDom = document.getElementById('fishbone-chart');
+    var myChart = echarts.init(chartDom);
+
+    // 配置鱼骨图数据（基于内容六）
+    var option = {
+        title: {
+            text: '转基因议题 TAP论证鱼骨图',
+            left: 'center',
+            textStyle: { fontSize: 16, color: '#333' }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function(params) {
+                return params.data.detail || params.name;
+            }
+        },
+        series: [{
+            type: 'fishbone',
+            symbolSize: 8,
+            label: {
+                show: true,
+                fontSize: 12,
+                color: '#333'
+            },
+            lineStyle: {
+                color: '#4a90e2',
+                width: 2
+            },
+            // ECharts 的鱼骨图数据结构
+            data: [
+                {
+                    name: '主张 (Claim)',
+                    detail: '在严格的安全评价和监管体系下，可以认可转基因食品的应用价值，但公众应享有充分的知情权。',
+                    children: [] // 鱼头
+                },
+                {
+                    name: '论证依据 (Warrant)',
+                    detail: '转基因技术的安全性不能脱离“加工方式和监管体系”来孤立讨论；经过严格评估的食品在食用安全性上有保障，但环境长期影响需持续监测。',
+                    children: [] // 上骨
+                },
+                {
+                    name: '反驳 (Rebuttal)',
+                    detail: '针对“转基因违背自然规律”的质疑，回应指出传统杂交同样改变遗传物质，而转基因是定向改造且需经严格毒理学评估，两者风险机制不同。',
+                    children: [] // 下骨
+                },
+                {
+                    name: '限定词 (Qualifier)',
+                    detail: '在“现有的安全评价体系能够覆盖已知风险”且“严格遵守标识与隔离种植规定”的前提下。',
+                    children: [] // 鱼尾
+                }
+            ]
+        }]
+    };
+
+    // 注意：ECharts 原生不支持 fishbone 类型，这里使用自定义图形或树图模拟。
+    // 为了纯前端无依赖完美展示，我们使用 ECharts 的 Graph 图或 Tree 图来模拟鱼骨结构。
+    // 下面提供一个高度定制的 Graph 鱼骨图实现：
+    
+    var fishboneOption = {
+        tooltip: { show: true, formatter: '{b}<br/>{c}' },
+        series: [{
+            type: 'graph',
+            layout: 'none',
+            symbolSize: 50,
+            roam: false,
+            label: { show: true, fontSize: 11, width: 120, overflow: 'break' },
+            edgeSymbol: ['none', 'arrow'],
+            edgeSymbolSize: [0, 10],
+            lineStyle: { width: 2, curveness: 0 },
+            data: [
+                { name: '限定词\n(Qualifier)', x: 50, y: 300, symbolSize: 60, itemStyle: { color: '#ff9999' }, 
+                  detail: '在“现有安全评价体系能够覆盖已知风险”且“严格遵守标识与隔离种植规定”的前提下。' },
+                { name: '论证依据\n(Warrant)', x: 350, y: 150, symbolSize: 70, itemStyle: { color: '#99ccff' }, 
+                  detail: '安全性不能脱离“加工方式和监管体系”孤立讨论；食用安全有保障，环境长期影响需持续监测。' },
+                { name: '反驳\n(Rebuttal)', x: 350, y: 450, symbolSize: 70, itemStyle: { color: '#ffcc99' }, 
+                  detail: '传统杂交同样改变遗传物质，转基因是定向改造且需经严格毒理学评估，两者风险机制不同。' },
+                { name: '主张\n(Claim)', x: 650, y: 300, symbolSize: 90, itemStyle: { color: '#66cc99' }, 
+                  detail: '在严格的安全评价和监管体系下，认可其应用价值，但公众应享有充分的知情权。' }
+            ],
+            links: [
+                { source: '限定词\n(Qualifier)', target: '论证依据\n(Warrant)' },
+                { source: '限定词\n(Qualifier)', target: '反驳\n(Rebuttal)' },
+                { source: '论证依据\n(Warrant)', target: '主张\n(Claim)' },
+                { source: '反驳\n(Rebuttal)', target: '主张\n(Claim)' }
+            ]
+        }]
+    };
+
+    myChart.setOption(fishboneOption);
+    
+    // 响应式调整
+    window.addEventListener('resize', function() {
+        myChart.resize();
+    });
+</script>
+
+</body>
+</html>
