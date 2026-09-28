@@ -152,7 +152,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   width:100%;
   max-width:520px;
 }
-/* 合并说明卡片 */
 .fish-merge-note{
   background:#e0e7ff;
   border:1.5px solid #a5b4fc;
@@ -568,6 +567,7 @@ footer{
 
     <div class="fishbone-wrap-bg">
       <div class="fish-demo">
+        <!-- 修改后的鱼骨图 SVG：只保留 4 个标签，上骨合并 Warrant，下骨合并 Rebuttal -->
         <svg class="fish-svg" id="fishboneSVG" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
           <ellipse class="fb-claim" cx="410" cy="150" rx="80" ry="54" fill="#fff" stroke="#4f46e5" stroke-width="3"/>
           <text x="410" y="142" text-anchor="middle" font-size="16" font-weight="700" fill="#4f46e5" pointer-events="none">主张</text>
@@ -576,18 +576,14 @@ footer{
           <text x="85" y="143" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c" pointer-events="none">限定</text>
           <text x="85" y="161" text-anchor="middle" font-size="11" fill="#b45309" pointer-events="none">Qualifier</text>
           <line x1="110" y1="150" x2="330" y2="150" stroke="#1e293b" stroke-width="3.5"/>
+          <!-- 上骨：保留两根线，统一标签 -->
           <line class="fb-warrant" x1="175" y1="150" x2="235" y2="65" stroke="#0284c7" stroke-width="3"/>
           <line class="fb-warrant" x1="255" y1="150" x2="315" y2="65" stroke="#0284c7" stroke-width="3"/>
-          <text x="205" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1" pointer-events="none">理由/佐证</text>
-          <text x="285" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1" pointer-events="none">资料/证据</text>
-          <text x="205" y="75" text-anchor="middle" font-size="10" fill="#0284c7" pointer-events="none">(Warrant)</text>
-          <text x="285" y="75" text-anchor="middle" font-size="10" fill="#0284c7" pointer-events="none">(Data)</text>
+          <text x="245" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1" pointer-events="none">理由/佐证 (Warrant)</text>
+          <!-- 下骨：保留两根线，统一标签 -->
           <line class="fb-rebuttal" x1="175" y1="150" x2="235" y2="235" stroke="#dc2626" stroke-width="3"/>
           <line class="fb-rebuttal" x1="255" y1="150" x2="315" y2="235" stroke="#dc2626" stroke-width="3"/>
-          <text x="205" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c" pointer-events="none">反驳</text>
-          <text x="285" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c" pointer-events="none">回应</text>
-          <text x="205" y="278" text-anchor="middle" font-size="10" fill="#dc2626" pointer-events="none">(Rebuttal)</text>
-          <text x="285" y="278" text-anchor="middle" font-size="10" fill="#dc2626" pointer-events="none">(Rebuttal)</text>
+          <text x="245" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c" pointer-events="none">反驳 (Rebuttal)</text>
         </svg>
         <div class="fish-legend">
           <div class="fl-item" data-fish="claim">
@@ -889,7 +885,6 @@ const STAGES = {
   },
   3:{
     cls:'good',
-    // 左侧卡片精简为最终简化后的 4 个核心元素
     elements:[
       {k:'主张 Claim',v:'在严格的安全评价和监管体系下，可以认可转基因食品的应用价值，但公众应享有充分的知情权。',e:'鱼头位置，帮助维持焦点。'},
       {k:'理由/佐证 Warrant',v:'1. 转基因大豆油精炼后几乎不含外源基因\n2. 我国实行严格的标识制度\n3. 安全性不能脱离加工方式和监管体系来讨论\n4. 依据“中心法则”，食物基因进入消化道会被分解',e:'上骨位置，整合了资料、佐证与支撑，按来源和成分组织支持性证据与推理。'},
@@ -917,7 +912,6 @@ const STAGES = {
     note.innerHTML = d.note;
 
     if(s === 3){
-      // 右侧：合并说明卡片 + 4个标签的鱼骨图
       right.innerHTML = `
       <div class="fish-preview-wrap">
         <div class="fish-merge-note">
@@ -934,11 +928,11 @@ const STAGES = {
           <text x="75" y="153" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">限定</text>
           <text x="75" y="171" text-anchor="middle" font-size="11" fill="#b45309">Qualifier</text>
           <line x1="100" y1="160" x2="277" y2="160" stroke="#1e293b" stroke-width="3.5"/>
-          <!-- 上骨：保留两根线，但统一标签为“理由/佐证 Warrant” -->
+          <!-- 上骨 -->
           <line x1="150" y1="160" x2="205" y2="75" stroke="#0284c7" stroke-width="3"/>
           <line x1="230" y1="160" x2="285" y2="75" stroke="#0284c7" stroke-width="3"/>
           <text x="217" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1">理由/佐证 (Warrant)</text>
-          <!-- 下骨：保留两根线，但统一标签为“反驳 Rebuttal” -->
+          <!-- 下骨 -->
           <line x1="150" y1="160" x2="205" y2="245" stroke="#dc2626" stroke-width="3"/>
           <line x1="230" y1="160" x2="285" y2="245" stroke="#dc2626" stroke-width="3"/>
           <text x="217" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">反驳 (Rebuttal)</text>
